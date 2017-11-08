@@ -518,31 +518,10 @@ var _ref2 = Object(preact_min["h"])(
     'Pick gradient style'
 );
 
-var _ref3 = Object(preact_min["h"])(
-    'option',
-    { value: '/assets/gradients/1.png' },
-    'Style 1'
-);
-
-var _ref4 = Object(preact_min["h"])(
-    'option',
-    { value: '/assets/gradients/2.png' },
-    'Style 2'
-);
-
-var _ref5 = Object(preact_min["h"])(
-    'option',
-    { value: '/assets/gradients/3.png' },
-    'Style 3'
-);
-
-var _ref6 = Object(preact_min["h"])(
-    'option',
-    { value: '/assets/gradients/4.png' },
-    'Style 4'
-);
-
 /* harmony default export */ var gradient_picker = (function (props) {
+
+    var prefix =  true ? '/social-img' : '';
+
     return Object(preact_min["h"])(
         'div',
         { 'class': style_default.a.gradientPickerContainer },
@@ -553,10 +532,26 @@ var _ref6 = Object(preact_min["h"])(
                     return props.onChange(e.srcElement.value);
                 } },
             _ref2,
-            _ref3,
-            _ref4,
-            _ref5,
-            _ref6
+            Object(preact_min["h"])(
+                'option',
+                { value: prefix + '/assets/gradients/1.png' },
+                'Style 1'
+            ),
+            Object(preact_min["h"])(
+                'option',
+                { value: prefix + '/assets/gradients/2.png' },
+                'Style 2'
+            ),
+            Object(preact_min["h"])(
+                'option',
+                { value: prefix + '/assets/gradients/3.png' },
+                'Style 3'
+            ),
+            Object(preact_min["h"])(
+                'option',
+                { value: prefix + '/assets/gradients/4.png' },
+                'Style 4'
+            )
         )
     );
 });
