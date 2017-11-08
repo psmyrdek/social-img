@@ -1,7 +1,7 @@
 {
   "name": "social-img",
   "short_name": "social-img",
-  "start_url": "/",
+  "start_url": "/social-img/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",

@@ -8,7 +8,7 @@
     "build": "preact build",
     "serve": "preact build && preact serve",
     "dev": "preact watch",
-    "build-github": "preact build --dest docs",
+    "build-github": "preact build --dest=docs --service-worker=false",
     "lint": "eslint src"
   },
   "eslintConfig": {
@@ -21,7 +21,7 @@
     "eslint": "^4.5.0",
     "eslint-config-synacor": "^1.1.0",
     "if-env": "^1.0.0",
-    "preact-cli": "^2.0.0"
+    "preact-cli": "2.1.0"
   },
   "dependencies": {
     "preact": "^8.2.1",
