@@ -10,6 +10,7 @@ export default (props) => {
                     {props.children}
                 </div>
             </div>
+            <p class={style.sizeInfo}>Crop this to - 1200px x 625px</p>
             <button class={style.closeBtn} onClick={() => props.onPreviewClose()}>Close</button>
         </div>
     )
