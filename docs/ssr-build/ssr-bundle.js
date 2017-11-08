@@ -78,7 +78,7 @@ module.exports = {"app":"app__-4egw","home":"home__17AGB"};
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"fullScreen":"fullScreen__EPIee","fullScreenContent":"fullScreenContent__2D6Vh","closeBtn":"closeBtn__XfGLn"};
+module.exports = {"fullScreen":"fullScreen__EPIee","fullScreenContent":"fullScreenContent__2D6Vh","closeBtn":"closeBtn__XfGLn","sizeInfo":"sizeInfo__1kC8F"};
 
 /***/ }),
 
@@ -651,6 +651,11 @@ var full_screen_preview_style_default = /*#__PURE__*/__webpack_require__.n(full_
                 { 'class': full_screen_preview_style_default.a.fullScreenContent },
                 props.children
             )
+        ),
+        Object(preact_min["h"])(
+            'p',
+            { 'class': full_screen_preview_style_default.a.sizeInfo },
+            'Crop this to - 1200px x 625px'
         ),
         Object(preact_min["h"])(
             'button',
