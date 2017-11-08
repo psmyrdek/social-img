@@ -1,8 +1,8 @@
 import { h, Component } from 'preact';
 import { Router } from 'preact-router';
-
+import GeneratorContainer from './generator-container';
 import Header from './header';
-import Home from '../routes/home';
+import style from './style';
 
 export default class App extends Component {
 
@@ -14,9 +14,9 @@ export default class App extends Component {
 		return (
 			<div id="app">
 				<Header />
-				<Router onChange={this.handleRoute}>
-					<Home path="/social-img" />
-				</Router>
+				<div class={style.home}>
+					<GeneratorContainer />
+				</div>
 			</div>
 		);
 	}

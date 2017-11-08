@@ -66,24 +66,30 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "/QC5":
+/***/ "0c/n":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"app":"app__-4egw","controlPanelTitle":"controlPanelTitle__3O_qg","home":"home__17AGB"};
+
+/***/ }),
+
+/***/ "JkW7":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "subscribers", function() { return subscribers; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCurrentUrl", function() { return getCurrentUrl; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "route", function() { return route; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return Router; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return Route; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return Link; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact__ = __webpack_require__("KM04");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_preact___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_preact__);
+
+// EXTERNAL MODULE: ../node_modules/preact/dist/preact.min.js
+var preact_min = __webpack_require__("KM04");
+var preact_min_default = /*#__PURE__*/__webpack_require__.n(preact_min);
+
+// CONCATENATED MODULE: ../node_modules/preact-router/dist/preact-router.es.js
 
 
 var EMPTY$1 = {};
 
-function assign(obj, props) {
+function preact_router_es_assign(obj, props) {
 	// eslint-disable-next-line guard-for-in
 	for (var i in props) {
 		obj[i] = props[i];
@@ -310,7 +316,7 @@ function initEventListeners() {
 	eventListenersInitialized = true;
 }
 
-var Router = function (Component$$1) {
+var preact_router_es_Router = function (Component$$1) {
 	function Router(props) {
 		Component$$1.call(this, props);
 		if (props.history) {
@@ -393,8 +399,8 @@ var Router = function (Component$$1) {
 			if (matches) {
 				if (invoke !== false) {
 					var newProps = { url: url, matches: matches };
-					assign(newProps, matches);
-					return Object(__WEBPACK_IMPORTED_MODULE_0_preact__["cloneElement"])(vnode, newProps);
+					preact_router_es_assign(newProps, matches);
+					return Object(preact_min["cloneElement"])(vnode, newProps);
 				}
 				return vnode;
 			}
@@ -430,54 +436,28 @@ var Router = function (Component$$1) {
 	};
 
 	return Router;
-}(__WEBPACK_IMPORTED_MODULE_0_preact__["Component"]);
+}(preact_min["Component"]);
 
-var Link = function Link(props) {
-	return Object(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])('a', assign({ onClick: handleLinkClick }, props));
+var preact_router_es_Link = function Link(props) {
+	return Object(preact_min["h"])('a', preact_router_es_assign({ onClick: handleLinkClick }, props));
 };
 
-var Route = function Route(props) {
-	return Object(__WEBPACK_IMPORTED_MODULE_0_preact__["h"])(props.component, props);
+var preact_router_es_Route = function Route(props) {
+	return Object(preact_min["h"])(props.component, props);
 };
 
-Router.subscribers = subscribers;
-Router.getCurrentUrl = getCurrentUrl;
-Router.route = route;
-Router.Router = Router;
-Router.Route = Route;
-Router.Link = Link;
+preact_router_es_Router.subscribers = subscribers;
+preact_router_es_Router.getCurrentUrl = getCurrentUrl;
+preact_router_es_Router.route = route;
+preact_router_es_Router.Router = preact_router_es_Router;
+preact_router_es_Router.Route = preact_router_es_Route;
+preact_router_es_Router.Link = preact_router_es_Link;
 
-/* harmony default export */ __webpack_exports__["default"] = (Router);
+/* harmony default export */ var preact_router_es = (preact_router_es_Router);
 //# sourceMappingURL=preact-router.es.js.map
+// CONCATENATED MODULE: ./components/image-preview/index.js
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-/***/ }),
-
-/***/ "JkW7":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-
-// EXTERNAL MODULE: ./style/index.css
-var style = __webpack_require__("rq4c");
-var style_default = /*#__PURE__*/__webpack_require__.n(style);
-
-// EXTERNAL MODULE: ../node_modules/preact/dist/preact.min.js
-var preact_min = __webpack_require__("KM04");
-var preact_min_default = /*#__PURE__*/__webpack_require__.n(preact_min);
-
-// EXTERNAL MODULE: ../node_modules/preact-router/dist/preact-router.es.js
-var preact_router_es = __webpack_require__("/QC5");
-
-// EXTERNAL MODULE: ../node_modules/preact-router/match.js
-var match = __webpack_require__("sw5u");
-var match_default = /*#__PURE__*/__webpack_require__.n(match);
-
-// EXTERNAL MODULE: ./components/header/style.css
-var header_style = __webpack_require__("u3et");
-var header_style_default = /*#__PURE__*/__webpack_require__.n(header_style);
-
-// CONCATENATED MODULE: ./components/header/index.js
 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -488,64 +468,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-
-
-var _ref = Object(preact_min["h"])(
-	'h1',
-	null,
-	'Social Images Generator'
-);
-
-var header_Header = function (_Component) {
-	_inherits(Header, _Component);
-
-	function Header() {
-		_classCallCheck(this, Header);
-
-		return _possibleConstructorReturn(this, _Component.apply(this, arguments));
-	}
-
-	Header.prototype.render = function render() {
-		return Object(preact_min["h"])(
-			'header',
-			{ 'class': header_style_default.a.header },
-			_ref,
-			Object(preact_min["h"])(
-				'nav',
-				null,
-				Object(preact_min["h"])(
-					match["Link"],
-					{ activeClassName: header_style_default.a.active, href: '/social-img' },
-					'Home'
-				)
-			)
-		);
-	};
-
-	return Header;
-}(preact_min["Component"]);
-
-
-// CONCATENATED MODULE: ./components/image-preview/index.js
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-
-
-function image_preview__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function image_preview__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function image_preview__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
 var image_preview_GeneratorContainer = function (_Component) {
-    image_preview__inherits(GeneratorContainer, _Component);
+    _inherits(GeneratorContainer, _Component);
 
     function GeneratorContainer(props) {
-        image_preview__classCallCheck(this, GeneratorContainer);
+        _classCallCheck(this, GeneratorContainer);
 
-        var _this = image_preview__possibleConstructorReturn(this, _Component.call(this, props));
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
         _this.imgPreviewStyle = {
             width: 1200,
@@ -569,15 +498,15 @@ var image_preview_GeneratorContainer = function (_Component) {
 
 
 // EXTERNAL MODULE: ./components/gradient-picker/style.css
-var gradient_picker_style = __webpack_require__("oPeZ");
-var gradient_picker_style_default = /*#__PURE__*/__webpack_require__.n(gradient_picker_style);
+var style = __webpack_require__("oPeZ");
+var style_default = /*#__PURE__*/__webpack_require__.n(style);
 
 // CONCATENATED MODULE: ./components/gradient-picker/index.js
 
 
 
 
-var gradient_picker__ref = Object(preact_min["h"])(
+var _ref = Object(preact_min["h"])(
     'p',
     { 'class': 'controlPanelTitle' },
     'Gradient'
@@ -616,11 +545,11 @@ var _ref6 = Object(preact_min["h"])(
 /* harmony default export */ var gradient_picker = (function (props) {
     return Object(preact_min["h"])(
         'div',
-        { 'class': gradient_picker_style_default.a.gradientPickerContainer },
-        gradient_picker__ref,
+        { 'class': style_default.a.gradientPickerContainer },
+        _ref,
         Object(preact_min["h"])(
             'select',
-            { 'class': gradient_picker_style_default.a.gradientSelect, onChange: function onChange(e) {
+            { 'class': style_default.a.gradientSelect, onChange: function onChange(e) {
                     return props.onChange(e.srcElement.value);
                 } },
             _ref2,
@@ -796,45 +725,52 @@ var generator_container_GeneratorContainer = function (_Component) {
 }(preact_min["Component"]);
 
 
-// EXTERNAL MODULE: ./routes/home/style.css
-var home_style = __webpack_require__("ZAL5");
-var home_style_default = /*#__PURE__*/__webpack_require__.n(home_style);
+// EXTERNAL MODULE: ./components/header/style.css
+var header_style = __webpack_require__("u3et");
+var header_style_default = /*#__PURE__*/__webpack_require__.n(header_style);
 
-// CONCATENATED MODULE: ./routes/home/index.js
-
-
-function home__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function home__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function home__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// CONCATENATED MODULE: ./components/header/index.js
 
 
+function header__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function header__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function header__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
 
-var home__ref = Object(preact_min["h"])(generator_container_GeneratorContainer, null);
 
-var home_Home = function (_Component) {
-	home__inherits(Home, _Component);
+var header__ref = Object(preact_min["h"])(
+	'h1',
+	null,
+	'Social Images Generator'
+);
 
-	function Home() {
-		home__classCallCheck(this, Home);
+var header_Header = function (_Component) {
+	header__inherits(Header, _Component);
 
-		return home__possibleConstructorReturn(this, _Component.apply(this, arguments));
+	function Header() {
+		header__classCallCheck(this, Header);
+
+		return header__possibleConstructorReturn(this, _Component.apply(this, arguments));
 	}
 
-	Home.prototype.render = function render() {
+	Header.prototype.render = function render() {
 		return Object(preact_min["h"])(
-			'div',
-			{ 'class': home_style_default.a.home },
-			home__ref
+			'header',
+			{ 'class': header_style_default.a.header },
+			header__ref
 		);
 	};
 
-	return Home;
+	return Header;
 }(preact_min["Component"]);
 
+
+// EXTERNAL MODULE: ./components/style.css
+var components_style = __webpack_require__("0c/n");
+var components_style_default = /*#__PURE__*/__webpack_require__.n(components_style);
 
 // CONCATENATED MODULE: ./components/app.js
 
@@ -853,7 +789,7 @@ function app__inherits(subClass, superClass) { if (typeof superClass !== "functi
 
 var app__ref = Object(preact_min["h"])(header_Header, null);
 
-var app__ref2 = Object(preact_min["h"])(home_Home, { path: '/social-img' });
+var app__ref2 = Object(preact_min["h"])(generator_container_GeneratorContainer, null);
 
 var app_App = function (_Component) {
 	app__inherits(App, _Component);
@@ -878,8 +814,8 @@ var app_App = function (_Component) {
 			{ id: 'app' },
 			app__ref,
 			Object(preact_min["h"])(
-				preact_router_es["Router"],
-				{ onChange: this.handleRoute },
+				'div',
+				{ 'class': components_style_default.a.home },
 				app__ref2
 			)
 		);
@@ -890,7 +826,6 @@ var app_App = function (_Component) {
 
 
 // CONCATENATED MODULE: ./index.js
-
 
 
 /* harmony default export */ var index = __webpack_exports__["default"] = (app_App);
@@ -1100,133 +1035,11 @@ var app_App = function (_Component) {
 
 /***/ }),
 
-/***/ "ZAL5":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-module.exports = {"home":"home__MseGd"};
-
-/***/ }),
-
 /***/ "oPeZ":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 module.exports = {"gradientSelect":"gradientSelect__3tI8e","gradientPickerContainer":"gradientPickerContainer__2gcpX"};
-
-/***/ }),
-
-/***/ "rq4c":
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "sw5u":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.Link = exports.Match = undefined;
-
-var _extends = Object.assign || function (target) {
-	for (var i = 1; i < arguments.length; i++) {
-		var source = arguments[i];for (var key in source) {
-			if (Object.prototype.hasOwnProperty.call(source, key)) {
-				target[key] = source[key];
-			}
-		}
-	}return target;
-};
-
-var _preact = __webpack_require__("KM04");
-
-var _preactRouter = __webpack_require__("/QC5");
-
-function _objectWithoutProperties(obj, keys) {
-	var target = {};for (var i in obj) {
-		if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
-	}return target;
-}
-
-function _classCallCheck(instance, Constructor) {
-	if (!(instance instanceof Constructor)) {
-		throw new TypeError("Cannot call a class as a function");
-	}
-}
-
-function _possibleConstructorReturn(self, call) {
-	if (!self) {
-		throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	}return call && (typeof call === "object" || typeof call === "function") ? call : self;
-}
-
-function _inherits(subClass, superClass) {
-	if (typeof superClass !== "function" && superClass !== null) {
-		throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
-
-var Match = exports.Match = function (_Component) {
-	_inherits(Match, _Component);
-
-	function Match() {
-		var _temp, _this, _ret;
-
-		_classCallCheck(this, Match);
-
-		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-			args[_key] = arguments[_key];
-		}
-
-		return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.update = function (url) {
-			_this.nextUrl = url;
-			_this.setState({});
-		}, _temp), _possibleConstructorReturn(_this, _ret);
-	}
-
-	Match.prototype.componentDidMount = function componentDidMount() {
-		_preactRouter.subscribers.push(this.update);
-	};
-
-	Match.prototype.componentWillUnmount = function componentWillUnmount() {
-		_preactRouter.subscribers.splice(_preactRouter.subscribers.indexOf(this.update) >>> 0, 1);
-	};
-
-	Match.prototype.render = function render(props) {
-		var url = this.nextUrl || (0, _preactRouter.getCurrentUrl)(),
-		    path = url.replace(/\?.+$/, '');
-		this.nextUrl = null;
-		return props.children[0] && props.children[0]({
-			url: url,
-			path: path,
-			matches: path === props.path
-		});
-	};
-
-	return Match;
-}(_preact.Component);
-
-var Link = function Link(_ref) {
-	var activeClassName = _ref.activeClassName,
-	    path = _ref.path,
-	    props = _objectWithoutProperties(_ref, ['activeClassName', 'path']);
-
-	return (0, _preact.h)(Match, { path: path || props.href }, function (_ref2) {
-		var matches = _ref2.matches;
-		return (0, _preact.h)(_preactRouter.Link, _extends({}, props, { 'class': [props.class || props.className, matches && activeClassName].filter(Boolean).join(' ') }));
-	});
-};
-
-exports.Link = Link;
-exports.default = Match;
-
-Match.Link = Link;
 
 /***/ }),
 
