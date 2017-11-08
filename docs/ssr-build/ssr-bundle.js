@@ -515,7 +515,7 @@ var header_Header = function (_Component) {
 				null,
 				Object(preact_min["h"])(
 					match["Link"],
-					{ activeClassName: header_style_default.a.active, href: '/' },
+					{ activeClassName: header_style_default.a.active, href: '/social-img' },
 					'Home'
 				)
 			)
@@ -853,7 +853,7 @@ function app__inherits(subClass, superClass) { if (typeof superClass !== "functi
 
 var app__ref = Object(preact_min["h"])(header_Header, null);
 
-var app__ref2 = Object(preact_min["h"])(home_Home, { path: '/' });
+var app__ref2 = Object(preact_min["h"])(home_Home, { path: '/social-img' });
 
 var app_App = function (_Component) {
 	app__inherits(App, _Component);

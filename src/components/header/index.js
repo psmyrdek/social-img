@@ -8,7 +8,7 @@ export default class Header extends Component {
 			<header class={style.header}>
 				<h1>Social Images Generator</h1>
 				<nav>
-					<Link activeClassName={style.active} href="/">Home</Link>
+					<Link activeClassName={style.active} href="/social-img">Home</Link>
 				</nav>
 			</header>
 		);
