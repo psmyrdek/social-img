@@ -1,4 +1,4 @@
-# {{ name }}
+# social-img
 
 ## CLI Commands
 
