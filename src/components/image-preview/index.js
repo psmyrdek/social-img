@@ -7,8 +7,7 @@ export default class GeneratorContainer extends Component {
 
         this.imgPreviewStyle = {
             width: 1200,
-            height: 625,
-            border: '1px solid #efefef'
+            height: 625
         };
     }
 

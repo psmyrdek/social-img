@@ -74,6 +74,14 @@ module.exports = {"app":"app__-4egw","home":"home__17AGB"};
 
 /***/ }),
 
+/***/ "6Hh0":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"fullScreen":"fullScreen__EPIee","fullScreenContent":"fullScreenContent__2D6Vh","closeBtn":"closeBtn__XfGLn"};
+
+/***/ }),
+
 /***/ "JkW7":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -478,8 +486,7 @@ var image_preview_GeneratorContainer = function (_Component) {
 
         _this.imgPreviewStyle = {
             width: 1200,
-            height: 625,
-            border: '1px solid #efefef'
+            height: 625
         };
         return _this;
     }
@@ -622,6 +629,46 @@ var blur_range_BlurRange = function (_Component) {
 }(preact_min["Component"]);
 
 
+// EXTERNAL MODULE: ./components/full-screen-preview/style.css
+var full_screen_preview_style = __webpack_require__("6Hh0");
+var full_screen_preview_style_default = /*#__PURE__*/__webpack_require__.n(full_screen_preview_style);
+
+// CONCATENATED MODULE: ./components/full-screen-preview/index.js
+
+
+
+
+/* harmony default export */ var full_screen_preview = (function (props) {
+
+    var ifEnabled = Object(preact_min["h"])(
+        'div',
+        null,
+        Object(preact_min["h"])(
+            'div',
+            { 'class': full_screen_preview_style_default.a.fullScreen },
+            Object(preact_min["h"])(
+                'div',
+                { 'class': full_screen_preview_style_default.a.fullScreenContent },
+                props.children
+            )
+        ),
+        Object(preact_min["h"])(
+            'button',
+            { 'class': full_screen_preview_style_default.a.closeBtn, onClick: function onClick() {
+                    return props.onPreviewClose();
+                } },
+            'Close'
+        )
+    );
+
+    var ifDisabled = Object(preact_min["h"])(
+        'div',
+        null,
+        props.children
+    );
+
+    return props.enabled ? ifEnabled : ifDisabled;
+});
 // EXTERNAL MODULE: ./components/generator-container/style.css
 var generator_container_style = __webpack_require__("uK8n");
 var generator_container_style_default = /*#__PURE__*/__webpack_require__.n(generator_container_style);
@@ -643,6 +690,7 @@ function generator_container__inherits(subClass, superClass) { if (typeof superC
 
 
 
+
 var generator_container_GeneratorContainer = function (_Component) {
     generator_container__inherits(GeneratorContainer, _Component);
 
@@ -654,7 +702,8 @@ var generator_container_GeneratorContainer = function (_Component) {
         _this.state = {
             imageUrl: '',
             gradientUrl: '',
-            blurValue: 0
+            blurValue: 0,
+            isFullScreen: false
         };
         return _this;
     }
@@ -683,6 +732,15 @@ var generator_container_GeneratorContainer = function (_Component) {
         });
     };
 
+    GeneratorContainer.prototype.toggleFullScreen = function toggleFullScreen(isFullScreen) {
+        debugger;
+        this.setState(function (prevState) {
+            return generator_container__extends({}, prevState, {
+                isFullScreen: isFullScreen
+            });
+        });
+    };
+
     GeneratorContainer.prototype.render = function render() {
         var _this2 = this;
 
@@ -702,17 +760,28 @@ var generator_container_GeneratorContainer = function (_Component) {
                     }
                 }),
                 Object(preact_min["h"])(
-                    'div',
-                    { 'class': generator_container_style_default.a.imagePreviewContainer },
-                    Object(preact_min["h"])(image_preview_GeneratorContainer, { imageUrl: this.state.imageUrl, blurValue: this.state.blurValue }),
-                    Object(preact_min["h"])('img', { src: this.state.gradientUrl, style: 'position: absolute; top: 0' })
+                    full_screen_preview,
+                    { enabled: this.state.isFullScreen, onPreviewClose: this.toggleFullScreen.bind(this, false) },
+                    Object(preact_min["h"])(
+                        'div',
+                        { 'class': generator_container_style_default.a.imagePreviewContainer },
+                        Object(preact_min["h"])(image_preview_GeneratorContainer, { imageUrl: this.state.imageUrl, blurValue: this.state.blurValue }),
+                        Object(preact_min["h"])('img', { src: this.state.gradientUrl, style: 'position: absolute; top: 0' })
+                    )
                 )
             ),
             Object(preact_min["h"])(
                 'div',
                 { 'class': generator_container_style_default.a.controlPanel },
                 Object(preact_min["h"])(gradient_picker, { onChange: this.onGradientChange.bind(this) }),
-                Object(preact_min["h"])(blur_range_BlurRange, { onChange: this.onBlurChange.bind(this) })
+                Object(preact_min["h"])(blur_range_BlurRange, { onChange: this.onBlurChange.bind(this) }),
+                Object(preact_min["h"])(
+                    'button',
+                    { onClick: function onClick() {
+                            return _this2.toggleFullScreen(true);
+                        } },
+                    'Full Screen'
+                )
             )
         );
     };
