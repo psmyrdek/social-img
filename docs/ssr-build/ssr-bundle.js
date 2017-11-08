@@ -58,7 +58,7 @@ module.exports =
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "/social-img";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = "JkW7");
@@ -850,7 +850,6 @@ function app__inherits(subClass, superClass) { if (typeof superClass !== "functi
 
 
 
-// import Home from 'async!../routes/home';
 
 var app__ref = Object(preact_min["h"])(header_Header, null);
 
@@ -872,11 +871,6 @@ var app_App = function (_Component) {
 			_this.currentUrl = e.url;
 		}, _temp), app__possibleConstructorReturn(_this, _ret);
 	}
-	/** Gets fired when the route changes.
-  *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
-  *	@param {string} event.url	The newly routed URL
-  */
-
 
 	App.prototype.render = function render() {
 		return Object(preact_min["h"])(
