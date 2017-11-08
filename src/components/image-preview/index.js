@@ -1,5 +1,4 @@
 import { h, Component } from 'preact';
-import appConfig from '../../common/appConfig';
 
 export default class GeneratorContainer extends Component {
 
@@ -15,7 +14,8 @@ export default class GeneratorContainer extends Component {
 
     render(props, state) {
         const previewStyle = Object.assign({}, this.imgPreviewStyle, {
-            'background-image': `url('${this.props.imageUrl}')`
+            'background-image': `url('${this.props.imageUrl}')`,
+            'filter': `blur(${this.props.blurValue}px)`
         });
 
         return (

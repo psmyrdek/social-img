@@ -3,7 +3,8 @@ import style from './style';
 
 export default (props) => {
     return (
-        <div>
+        <div class={style.gradientPickerContainer}>
+            <p class="controlPanelTitle">Gradient</p>
             <select class={style.gradientSelect} onChange={(e) => props.onChange(e.srcElement.value)}>
                 <option value="">Pick gradient style</option>
                 <option value="/assets/gradients/1.png">Style 1</option>

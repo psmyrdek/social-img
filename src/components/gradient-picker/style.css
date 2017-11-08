@@ -1,3 +1,7 @@
 .gradientSelect {
     width: 100%;
 }
+
+.gradientPickerContainer {
+    margin-bottom: 20px;
+}

@@ -18,3 +18,9 @@ html, body {
 #app {
 	height: 100%;
 }
+
+.controlPanelTitle {
+	font-size: 10px;
+	margin: 0 0 10px 0;
+	padding: 0;
+}

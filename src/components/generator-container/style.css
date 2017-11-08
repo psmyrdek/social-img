@@ -16,3 +16,8 @@
     margin-top: 10px;
     padding: 0 5px;
 }
+
+.imagePreviewContainer {
+    position: relative;
+    overflow: hidden;
+}
