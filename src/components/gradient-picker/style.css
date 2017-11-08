@@ -1,7 +1,13 @@
-.gradientSelect {
+.gradientPickerSelect {
     width: 100%;
 }
 
 .gradientPickerContainer {
     margin-bottom: 20px;
+}
+
+.gradientPickerTitle {
+	font-size: 10px;
+	margin: 0 0 10px 0;
+	padding: 0;
 }

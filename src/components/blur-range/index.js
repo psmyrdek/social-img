@@ -1,4 +1,5 @@
 import { h, Component } from 'preact';
+import style from './style';
 
 export default class BlurRange extends Component {
 
@@ -22,7 +23,7 @@ export default class BlurRange extends Component {
     render() {
         return (
             <div>
-                <p class="controlPanelTitle">Blur</p>
+                <p class={style.blurRangeTitle}>Blur</p>
                 <input
                     type="range"
                     min="0"

@@ -70,7 +70,7 @@ module.exports =
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"app":"app__-4egw","controlPanelTitle":"controlPanelTitle__3O_qg","home":"home__17AGB"};
+module.exports = {"app":"app__-4egw","home":"home__17AGB"};
 
 /***/ }),
 
@@ -507,12 +507,6 @@ var style_default = /*#__PURE__*/__webpack_require__.n(style);
 
 
 var _ref = Object(preact_min["h"])(
-    'p',
-    { 'class': 'controlPanelTitle' },
-    'Gradient'
-);
-
-var _ref2 = Object(preact_min["h"])(
     'option',
     { value: '' },
     'Pick gradient style'
@@ -525,13 +519,17 @@ var _ref2 = Object(preact_min["h"])(
     return Object(preact_min["h"])(
         'div',
         { 'class': style_default.a.gradientPickerContainer },
-        _ref,
+        Object(preact_min["h"])(
+            'p',
+            { 'class': style_default.a.gradientPickerTitle },
+            'Gradient'
+        ),
         Object(preact_min["h"])(
             'select',
-            { 'class': style_default.a.gradientSelect, onChange: function onChange(e) {
+            { 'class': style_default.a.gradientPickerSelect, onChange: function onChange(e) {
                     return props.onChange(e.srcElement.value);
                 } },
-            _ref2,
+            _ref,
             Object(preact_min["h"])(
                 'option',
                 { value: prefix + '/assets/gradients/1.png' },
@@ -555,6 +553,10 @@ var _ref2 = Object(preact_min["h"])(
         )
     );
 });
+// EXTERNAL MODULE: ./components/blur-range/style.css
+var blur_range_style = __webpack_require__("MnJD");
+var blur_range_style_default = /*#__PURE__*/__webpack_require__.n(blur_range_style);
+
 // CONCATENATED MODULE: ./components/blur-range/index.js
 var blur_range__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -568,11 +570,6 @@ function blur_range__inherits(subClass, superClass) { if (typeof superClass !== 
 
 
 
-var blur_range__ref = Object(preact_min["h"])(
-    "p",
-    { "class": "controlPanelTitle" },
-    "Blur"
-);
 
 var blur_range_BlurRange = function (_Component) {
     blur_range__inherits(BlurRange, _Component);
@@ -601,14 +598,18 @@ var blur_range_BlurRange = function (_Component) {
         var _this2 = this;
 
         return Object(preact_min["h"])(
-            "div",
+            'div',
             null,
-            blur_range__ref,
-            Object(preact_min["h"])("input", {
-                type: "range",
-                min: "0",
-                max: "20",
-                step: "1",
+            Object(preact_min["h"])(
+                'p',
+                { 'class': blur_range_style_default.a.blurRangeTitle },
+                'Blur'
+            ),
+            Object(preact_min["h"])('input', {
+                type: 'range',
+                min: '0',
+                max: '20',
+                step: '1',
                 value: this.state.blurValue,
                 onChange: function onChange(e) {
                     return _this2.onRangeChange(e.srcElement.value);
@@ -784,7 +785,7 @@ function app__inherits(subClass, superClass) { if (typeof superClass !== "functi
 
 var app__ref = Object(preact_min["h"])(header_Header, null);
 
-var app__ref2 = Object(preact_min["h"])(generator_container_GeneratorContainer, null);
+var _ref2 = Object(preact_min["h"])(generator_container_GeneratorContainer, null);
 
 var app_App = function (_Component) {
 	app__inherits(App, _Component);
@@ -806,12 +807,12 @@ var app_App = function (_Component) {
 	App.prototype.render = function render() {
 		return Object(preact_min["h"])(
 			'div',
-			{ id: 'app' },
+			{ id: 'app', 'class': components_style_default.a.app },
 			app__ref,
 			Object(preact_min["h"])(
 				'div',
 				{ 'class': components_style_default.a.home },
-				app__ref2
+				_ref2
 			)
 		);
 	};
@@ -1030,11 +1031,19 @@ var app_App = function (_Component) {
 
 /***/ }),
 
+/***/ "MnJD":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"blurRangeTitle":"blurRangeTitle__2M7KV"};
+
+/***/ }),
+
 /***/ "oPeZ":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"gradientSelect":"gradientSelect__3tI8e","gradientPickerContainer":"gradientPickerContainer__2gcpX"};
+module.exports = {"gradientPickerSelect":"gradientPickerSelect__2boIS","gradientPickerContainer":"gradientPickerContainer__2gcpX","gradientPickerTitle":"gradientPickerTitle__3c7eV"};
 
 /***/ }),
 
