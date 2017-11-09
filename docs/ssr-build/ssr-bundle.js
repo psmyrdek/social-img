@@ -505,8 +505,8 @@ var image_preview_GeneratorContainer = function (_Component) {
 
 
 // EXTERNAL MODULE: ./components/gradient-picker/style.css
-var style = __webpack_require__("oPeZ");
-var style_default = /*#__PURE__*/__webpack_require__.n(style);
+var gradient_picker_style = __webpack_require__("oPeZ");
+var style_default = /*#__PURE__*/__webpack_require__.n(gradient_picker_style);
 
 // CONCATENATED MODULE: ./components/gradient-picker/index.js
 
@@ -629,6 +629,43 @@ var blur_range_BlurRange = function (_Component) {
 }(preact_min["Component"]);
 
 
+// CONCATENATED MODULE: ./components/text-area-renderer/index.js
+
+
+function text_area_renderer__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var text_area_renderer_TextAreaRenderer = function () {
+    function TextAreaRenderer() {
+        text_area_renderer__classCallCheck(this, TextAreaRenderer);
+    }
+
+    TextAreaRenderer.prototype.render = function render(props) {
+        var style = {
+            'position': 'relative',
+            'text-align': 'center',
+            'color': '#FFF',
+            'font-family': 'Montserrat, sans-serif',
+            'font-weight': '700',
+            'font-style': props.italic ? 'italic' : 'normal',
+            'font-size': props.fontSize,
+            'margin': 0,
+            'padding': 0,
+            'top': props.top
+        };
+
+        return Object(preact_min["h"])(
+            'p',
+            { style: style },
+            props.text
+        );
+    };
+
+    return TextAreaRenderer;
+}();
+
+
 // EXTERNAL MODULE: ./components/full-screen-preview/style.css
 var full_screen_preview_style = __webpack_require__("6Hh0");
 var full_screen_preview_style_default = /*#__PURE__*/__webpack_require__.n(full_screen_preview_style);
@@ -696,6 +733,7 @@ function generator_container__inherits(subClass, superClass) { if (typeof superC
 
 
 
+
 var generator_container_GeneratorContainer = function (_Component) {
     generator_container__inherits(GeneratorContainer, _Component);
 
@@ -708,7 +746,18 @@ var generator_container_GeneratorContainer = function (_Component) {
             imageUrl: '',
             gradientUrl: '',
             blurValue: 0,
-            isFullScreen: false
+            isFullScreen: false,
+            textAreas: [{
+                text: 'Lorem ipsum dolor sit amet',
+                top: 100,
+                fontSize: 60,
+                italic: true
+            }, {
+                text: 'Lorem ipsum dolor sit amet',
+                top: 110,
+                fontSize: 50,
+                italic: false
+            }]
         };
         return _this;
     }
@@ -770,6 +819,13 @@ var generator_container_GeneratorContainer = function (_Component) {
                     Object(preact_min["h"])(
                         'div',
                         { 'class': generator_container_style_default.a.imagePreviewContainer },
+                        Object(preact_min["h"])(
+                            'div',
+                            { 'class': generator_container_style_default.a.rendererWrapper },
+                            this.state.textAreas.map(function (x) {
+                                return Object(preact_min["h"])(text_area_renderer_TextAreaRenderer, x);
+                            })
+                        ),
                         Object(preact_min["h"])(image_preview_GeneratorContainer, { imageUrl: this.state.imageUrl, blurValue: this.state.blurValue }),
                         Object(preact_min["h"])('img', { src: this.state.gradientUrl, style: 'position: absolute; top: 0' })
                     )
@@ -1133,7 +1189,7 @@ module.exports = {"header":"header__3QGkI","active":"active__3gItZ"};
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"generator":"generator__3Mu7o","generatorInput":"generatorInput__3Al-K","controlPanel":"controlPanel__22bOS","imagePreviewContainer":"imagePreviewContainer__3tfv5"};
+module.exports = {"generator":"generator__3Mu7o","generatorInput":"generatorInput__3Al-K","controlPanel":"controlPanel__22bOS","imagePreviewContainer":"imagePreviewContainer__3tfv5","rendererWrapper":"rendererWrapper__1pjQ9"};
 
 /***/ })
 

@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import ImagePreview from '../../components/image-preview';
 import GradientPicker from '../../components/gradient-picker';
 import BlurRange from '../../components/blur-range';
+import TextAreaRenderer from '../../components/text-area-renderer';
 import FullScreenPreview from '../../components/full-screen-preview';
 import style from './style';
 
@@ -13,7 +14,21 @@ export default class GeneratorContainer extends Component {
             imageUrl: '',
             gradientUrl: '',
             blurValue: 0,
-            isFullScreen: false
+            isFullScreen: false,
+            textAreas: [
+                {
+                    text: 'Lorem ipsum dolor sit amet',
+                    top: 100,
+                    fontSize: 60,
+                    italic: true,
+                },
+                {
+                    text: 'Lorem ipsum dolor sit amet',
+                    top: 110,
+                    fontSize: 50,
+                    italic: false
+                }
+            ]
         };
     }
 
@@ -68,6 +83,9 @@ export default class GeneratorContainer extends Component {
                     />
                     <FullScreenPreview enabled={this.state.isFullScreen} onPreviewClose={this.toggleFullScreen.bind(this, false)}>
                         <div class={style.imagePreviewContainer}>
+                            <div class={style.rendererWrapper}>
+                                {this.state.textAreas.map(x => <TextAreaRenderer {...x} />)}
+                            </div>
                             <ImagePreview imageUrl={this.state.imageUrl} blurValue={this.state.blurValue} />
                             <img src={this.state.gradientUrl} style="position: absolute; top: 0" />
                         </div>
