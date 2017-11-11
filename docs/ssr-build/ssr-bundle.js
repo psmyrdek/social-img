@@ -74,11 +74,74 @@ module.exports = {"app":"app__-4egw","home":"home__17AGB"};
 
 /***/ }),
 
+/***/ "2/q8":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"textAreaWrapper":"textAreaWrapper__Ue99K","textArea":"textArea__3gMEN","textArea--italic":"textArea--italic__3KAoM","textArea--editing":"textArea--editing__20TFB","editFormOption":"editFormOption__1HnmW"};
+
+/***/ }),
+
 /***/ "6Hh0":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 module.exports = {"fullScreen":"fullScreen__EPIee","fullScreenContent":"fullScreenContent__2D6Vh","closeBtn":"closeBtn__XfGLn","sizeInfo":"sizeInfo__1kC8F"};
+
+/***/ }),
+
+/***/ "9qb7":
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2016 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames() {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				classes.push(classNames.apply(null, arg));
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+			return classNames;
+		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+		window.classNames = classNames;
+	}
+})();
 
 /***/ }),
 
@@ -505,8 +568,8 @@ var image_preview_GeneratorContainer = function (_Component) {
 
 
 // EXTERNAL MODULE: ./components/gradient-picker/style.css
-var gradient_picker_style = __webpack_require__("oPeZ");
-var style_default = /*#__PURE__*/__webpack_require__.n(gradient_picker_style);
+var style = __webpack_require__("oPeZ");
+var style_default = /*#__PURE__*/__webpack_require__.n(style);
 
 // CONCATENATED MODULE: ./components/gradient-picker/index.js
 
@@ -629,41 +692,247 @@ var blur_range_BlurRange = function (_Component) {
 }(preact_min["Component"]);
 
 
-// CONCATENATED MODULE: ./components/text-area-renderer/index.js
+// EXTERNAL MODULE: ../node_modules/classnames/index.js
+var classnames = __webpack_require__("9qb7");
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+
+// EXTERNAL MODULE: ./components/text-area/style.css
+var text_area_style = __webpack_require__("2/q8");
+var text_area_style_default = /*#__PURE__*/__webpack_require__.n(text_area_style);
+
+// CONCATENATED MODULE: ./components/text-area/index.js
+var text_area__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
-function text_area_renderer__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function text_area__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function text_area__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function text_area__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
 
-var text_area_renderer_TextAreaRenderer = function () {
-    function TextAreaRenderer() {
-        text_area_renderer__classCallCheck(this, TextAreaRenderer);
+
+
+var text_area__ref = Object(preact_min["h"])(
+    'option',
+    { value: '300' },
+    '300'
+);
+
+var _ref2 = Object(preact_min["h"])(
+    'option',
+    { value: '400' },
+    '400'
+);
+
+var _ref3 = Object(preact_min["h"])(
+    'option',
+    { value: '600' },
+    '600'
+);
+
+var _ref4 = Object(preact_min["h"])(
+    'option',
+    { value: '700' },
+    '700'
+);
+
+var text_area_TextArea = function (_Component) {
+    text_area__inherits(TextArea, _Component);
+
+    function TextArea(props) {
+        text_area__classCallCheck(this, TextArea);
+
+        var _this = text_area__possibleConstructorReturn(this, _Component.call(this, props));
+
+        _this.state = text_area__extends({}, props.model);
+        return _this;
     }
 
-    TextAreaRenderer.prototype.render = function render(props) {
-        var style = {
-            'position': 'relative',
-            'text-align': 'center',
-            'color': '#FFF',
-            'font-family': 'Montserrat, sans-serif',
-            'font-weight': '700',
-            'font-style': props.italic ? 'italic' : 'normal',
-            'font-size': props.fontSize,
-            'margin': 0,
-            'padding': 0,
-            'top': props.top
-        };
+    TextArea.prototype.toggleItalic = function toggleItalic() {
+        this.setState(function (prevState) {
+            return {
+                italic: !prevState.italic
+            };
+        });
+    };
+
+    TextArea.prototype.setEditMode = function setEditMode(isEnabled) {
+        this.setState(function (prevState) {
+            return {
+                isEditEnabled: isEnabled
+            };
+        });
+    };
+
+    TextArea.prototype.setFontSize = function setFontSize(newFontSize) {
+        this.setState(function (prevState) {
+            return {
+                fontSize: newFontSize
+            };
+        });
+    };
+
+    TextArea.prototype.setFontWeight = function setFontWeight(newFontWeight) {
+        this.setState(function (prevState) {
+            return {
+                fontWeight: newFontWeight
+            };
+        });
+    };
+
+    TextArea.prototype.setTop = function setTop(newTop) {
+        this.setState(function (prevState) {
+            return {
+                top: newTop
+            };
+        });
+    };
+
+    TextArea.prototype.renderItalicCheckbox = function renderItalicCheckbox(italic) {
+        var _this2 = this;
 
         return Object(preact_min["h"])(
-            'p',
-            { style: style },
-            props.text
+            'label',
+            null,
+            Object(preact_min["h"])(
+                'span',
+                { 'class': text_area_style_default.a.editFormOption },
+                'Italic'
+            ),
+            Object(preact_min["h"])('input', { type: 'checkbox',
+                value: italic,
+                onChange: function onChange() {
+                    return _this2.toggleItalic();
+                } })
         );
     };
 
-    return TextAreaRenderer;
-}();
+    TextArea.prototype.renderFontSizeInput = function renderFontSizeInput(fontSize) {
+        var _this3 = this;
+
+        return Object(preact_min["h"])(
+            'label',
+            null,
+            Object(preact_min["h"])(
+                'span',
+                { 'class': text_area_style_default.a.editFormOption },
+                'Font size'
+            ),
+            Object(preact_min["h"])('input', { type: 'number',
+                min: '0',
+                value: fontSize,
+                onChange: function onChange(e) {
+                    return _this3.setFontSize(e.srcElement.value);
+                } })
+        );
+    };
+
+    TextArea.prototype.renderTopInput = function renderTopInput(top) {
+        var _this4 = this;
+
+        return Object(preact_min["h"])(
+            'label',
+            null,
+            Object(preact_min["h"])(
+                'span',
+                { 'class': text_area_style_default.a.editFormOption },
+                'Top'
+            ),
+            Object(preact_min["h"])('input', { type: 'number',
+                value: top,
+                onChange: function onChange(e) {
+                    return _this4.setTop(e.srcElement.value);
+                } })
+        );
+    };
+
+    TextArea.prototype.renderRemoveBtn = function renderRemoveBtn(onRemove) {
+        // TODO
+        return Object(preact_min["h"])(
+            'button',
+            { onClick: function onClick() {
+                    return onRemove();
+                } },
+            'Remove \xD7 '
+        );
+    };
+
+    TextArea.prototype.renderCloseBtn = function renderCloseBtn() {
+        var _this5 = this;
+
+        // TODO
+        return Object(preact_min["h"])(
+            'button',
+            { onClick: function onClick() {
+                    return _this5.setEditMode(false);
+                } },
+            'Close'
+        );
+    };
+
+    TextArea.prototype.renderWeightSelector = function renderWeightSelector() {
+        var _this6 = this;
+
+        return Object(preact_min["h"])(
+            'label',
+            null,
+            Object(preact_min["h"])(
+                'span',
+                { 'class': text_area_style_default.a.editFormOption },
+                'Font weight'
+            ),
+            Object(preact_min["h"])(
+                'select',
+                { onChange: function onChange(e) {
+                        return _this6.setFontWeight(e.srcElement.value);
+                    } },
+                text_area__ref,
+                _ref2,
+                _ref3,
+                _ref4
+            )
+        );
+    };
+
+    TextArea.prototype.render = function render(props) {
+        var _textClassNames,
+            _this7 = this;
+
+        var textClassNames = (_textClassNames = {}, _textClassNames[text_area_style_default.a.textArea] = true, _textClassNames[text_area_style_default.a['textArea--editing']] = this.state.isEditEnabled, _textClassNames[text_area_style_default.a['textArea--italic']] = this.state.italic, _textClassNames);
+
+        var textStyle = {
+            'font-size': this.state.fontSize + 'px',
+            'font-weight': this.state.fontWeight
+        };
+
+        return Object(preact_min["h"])(
+            'div',
+            { 'class': text_area_style_default.a.textAreaWrapper, style: { top: this.state.top + 'px' } },
+            Object(preact_min["h"])(
+                'p',
+                { 'class': classnames_default()(textClassNames), style: textStyle, onClick: function onClick() {
+                        return _this7.setEditMode(true);
+                    } },
+                this.state.text
+            ),
+            this.state.isEditEnabled && Object(preact_min["h"])(
+                'div',
+                null,
+                this.renderItalicCheckbox(this.state.italic),
+                this.renderFontSizeInput(this.state.fontSize),
+                this.renderTopInput(this.state.top),
+                this.renderWeightSelector(),
+                this.renderCloseBtn(),
+                this.renderRemoveBtn(props.onRemove)
+            )
+        );
+    };
+
+    return TextArea;
+}(preact_min["Component"]);
 
 
 // EXTERNAL MODULE: ./components/full-screen-preview/style.css
@@ -743,21 +1012,11 @@ var generator_container_GeneratorContainer = function (_Component) {
         var _this = generator_container__possibleConstructorReturn(this, _Component.call(this));
 
         _this.state = {
-            imageUrl: '',
+            imageUrl: 'https://poznajprogramowanie.pl/wp-content/uploads/2017/11/front-post.png',
             gradientUrl: '',
             blurValue: 0,
             isFullScreen: false,
-            textAreas: [{
-                text: 'Lorem ipsum dolor sit amet',
-                top: 100,
-                fontSize: 60,
-                italic: true
-            }, {
-                text: 'Lorem ipsum dolor sit amet',
-                top: 110,
-                fontSize: 50,
-                italic: false
-            }]
+            textAreaModels: []
         };
         return _this;
     }
@@ -787,7 +1046,6 @@ var generator_container_GeneratorContainer = function (_Component) {
     };
 
     GeneratorContainer.prototype.toggleFullScreen = function toggleFullScreen(isFullScreen) {
-        debugger;
         this.setState(function (prevState) {
             return generator_container__extends({}, prevState, {
                 isFullScreen: isFullScreen
@@ -795,8 +1053,28 @@ var generator_container_GeneratorContainer = function (_Component) {
         });
     };
 
-    GeneratorContainer.prototype.render = function render() {
+    GeneratorContainer.prototype.addTextArea = function addTextArea() {
         var _this2 = this;
+
+        this.setState(function (prevState) {
+            return {
+                textAreaModels: [].concat(prevState.textAreaModels, [{
+                    text: 'Click me',
+                    top: 100,
+                    italic: false,
+                    fontSize: 30,
+                    fontWeight: 400,
+                    isEditEnabled: false,
+                    onRemove: _this2.onTextAreaRemove.bind(_this2)
+                }])
+            };
+        });
+    };
+
+    GeneratorContainer.prototype.onTextAreaRemove = function onTextAreaRemove() {};
+
+    GeneratorContainer.prototype.render = function render() {
+        var _this3 = this;
 
         return Object(preact_min["h"])(
             'div',
@@ -810,7 +1088,7 @@ var generator_container_GeneratorContainer = function (_Component) {
                     placeholder: 'Image URL',
                     value: this.state.imageUrl,
                     onChange: function onChange(e) {
-                        return _this2.updateImageUrl(e);
+                        return _this3.updateImageUrl(e);
                     }
                 }),
                 Object(preact_min["h"])(
@@ -822,8 +1100,8 @@ var generator_container_GeneratorContainer = function (_Component) {
                         Object(preact_min["h"])(
                             'div',
                             { 'class': generator_container_style_default.a.rendererWrapper },
-                            this.state.textAreas.map(function (x) {
-                                return Object(preact_min["h"])(text_area_renderer_TextAreaRenderer, x);
+                            this.state.textAreaModels.map(function (x) {
+                                return Object(preact_min["h"])(text_area_TextArea, { model: x });
                             })
                         ),
                         Object(preact_min["h"])(image_preview_GeneratorContainer, { imageUrl: this.state.imageUrl, blurValue: this.state.blurValue }),
@@ -838,10 +1116,17 @@ var generator_container_GeneratorContainer = function (_Component) {
                 Object(preact_min["h"])(blur_range_BlurRange, { onChange: this.onBlurChange.bind(this) }),
                 Object(preact_min["h"])(
                     'button',
-                    { onClick: function onClick() {
-                            return _this2.toggleFullScreen(true);
+                    { 'class': generator_container_style_default.a.controlPanelButton, onClick: function onClick() {
+                            return _this3.toggleFullScreen(true);
                         } },
                     'Full Screen'
+                ),
+                Object(preact_min["h"])(
+                    'button',
+                    { 'class': generator_container_style_default.a.controlPanelButton, onClick: function onClick() {
+                            return _this3.addTextArea();
+                        } },
+                    'Add text area'
                 )
             )
         );
@@ -915,7 +1200,7 @@ function app__inherits(subClass, superClass) { if (typeof superClass !== "functi
 
 var app__ref = Object(preact_min["h"])(header_Header, null);
 
-var _ref2 = Object(preact_min["h"])(generator_container_GeneratorContainer, null);
+var app__ref2 = Object(preact_min["h"])(generator_container_GeneratorContainer, null);
 
 var app_App = function (_Component) {
 	app__inherits(App, _Component);
@@ -942,7 +1227,7 @@ var app_App = function (_Component) {
 			Object(preact_min["h"])(
 				'div',
 				{ 'class': components_style_default.a.home },
-				_ref2
+				app__ref2
 			)
 		);
 	};
@@ -1189,7 +1474,7 @@ module.exports = {"header":"header__3QGkI","active":"active__3gItZ"};
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"generator":"generator__3Mu7o","generatorInput":"generatorInput__3Al-K","controlPanel":"controlPanel__22bOS","imagePreviewContainer":"imagePreviewContainer__3tfv5","rendererWrapper":"rendererWrapper__1pjQ9"};
+module.exports = {"generator":"generator__3Mu7o","generatorInput":"generatorInput__3Al-K","controlPanel":"controlPanel__22bOS","imagePreviewContainer":"imagePreviewContainer__3tfv5","rendererWrapper":"rendererWrapper__1pjQ9","controlPanelButton":"controlPanelButton__MN0QA"};
 
 /***/ })
 
