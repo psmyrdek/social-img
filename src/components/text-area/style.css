@@ -1,0 +1,29 @@
+.textAreaWrapper {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}
+
+.textArea {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.textArea--italic {
+    font-style: italic;
+}
+
+.textArea--editing {
+    color: rgb(75, 223, 154);
+    border: 1px dashed rgb(75, 223, 154);
+}
+
+.editFormOption {
+    color: white;
+    margin-left: 20px;
+    margin-right: 5px;
+}

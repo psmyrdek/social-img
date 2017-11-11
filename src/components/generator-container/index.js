@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import ImagePreview from '../../components/image-preview';
 import GradientPicker from '../../components/gradient-picker';
 import BlurRange from '../../components/blur-range';
-import TextAreaRenderer from '../../components/text-area-renderer';
+import TextArea from '../../components/text-area';
 import FullScreenPreview from '../../components/full-screen-preview';
 import style from './style';
 
@@ -11,24 +11,11 @@ export default class GeneratorContainer extends Component {
     constructor() {
         super();
         this.state = {
-            imageUrl: '',
+            imageUrl: 'https://poznajprogramowanie.pl/wp-content/uploads/2017/11/front-post.png',
             gradientUrl: '',
             blurValue: 0,
             isFullScreen: false,
-            textAreas: [
-                {
-                    text: 'Lorem ipsum dolor sit amet',
-                    top: 100,
-                    fontSize: 60,
-                    italic: true,
-                },
-                {
-                    text: 'Lorem ipsum dolor sit amet',
-                    top: 110,
-                    fontSize: 50,
-                    italic: false
-                }
-            ]
+            textAreaModels: []
         };
     }
 
@@ -60,13 +47,32 @@ export default class GeneratorContainer extends Component {
     }
 
     toggleFullScreen(isFullScreen) {
-        debugger;
         this.setState(prevState => {
             return {
                 ...prevState,
                 isFullScreen: isFullScreen
             }
         });
+    }
+
+    addTextArea() {
+        this.setState(prevState => {
+            return {
+                textAreaModels: [...prevState.textAreaModels, {
+                    text: 'Click me',
+                    top: 100,
+                    italic: false,
+                    fontSize: 30,
+                    fontWeight: 400,
+                    isEditEnabled: false,
+                    onRemove: this.onTextAreaRemove.bind(this)
+                }]
+            }
+        });
+    }
+
+    onTextAreaRemove() {
+
     }
 
     render() {
@@ -84,7 +90,7 @@ export default class GeneratorContainer extends Component {
                     <FullScreenPreview enabled={this.state.isFullScreen} onPreviewClose={this.toggleFullScreen.bind(this, false)}>
                         <div class={style.imagePreviewContainer}>
                             <div class={style.rendererWrapper}>
-                                {this.state.textAreas.map(x => <TextAreaRenderer {...x} />)}
+                                {this.state.textAreaModels.map(x => <TextArea model={x} />)}
                             </div>
                             <ImagePreview imageUrl={this.state.imageUrl} blurValue={this.state.blurValue} />
                             <img src={this.state.gradientUrl} style="position: absolute; top: 0" />
@@ -94,7 +100,8 @@ export default class GeneratorContainer extends Component {
                 <div class={style.controlPanel}>
                     <GradientPicker onChange={this.onGradientChange.bind(this)} />
                     <BlurRange onChange={this.onBlurChange.bind(this)} />
-                    <button onClick={() => this.toggleFullScreen(true)}>Full Screen</button>
+                    <button class={style.controlPanelButton} onClick={() => this.toggleFullScreen(true)}>Full Screen</button>
+                    <button class={style.controlPanelButton} onClick={() => this.addTextArea()}>Add text area</button>
                 </div>
             </div>
         )
