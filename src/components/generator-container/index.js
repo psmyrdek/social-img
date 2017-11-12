@@ -10,10 +10,9 @@ export default class GeneratorContainer extends Component {
     constructor() {
         super();
         this.state = {
-            imageUrl: 'https://poznajprogramowanie.pl/wp-content/uploads/2017/11/front-post.png',
+            imageUrl: '',
             gradientUrl: '',
             blurValue: 0,
-            isFullScreen: false,
             textAreaModels: []
         };
     }
@@ -42,19 +41,11 @@ export default class GeneratorContainer extends Component {
         });
     }
 
-    toggleFullScreen() {
-        this.setState(prevState => {
-            return {
-                isFullScreen: !prevState.isFullScreen
-            }
-        });
-    }
-
     onNewTextArea() {
         this.setState(prevState => {
             return {
                 textAreaModels: [...prevState.textAreaModels, {
-                    text: 'Click me',
+                    text: 'Click to edit',
                     top: 100,
                     italic: false,
                     fontSize: 30,
