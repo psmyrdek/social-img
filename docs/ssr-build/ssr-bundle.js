@@ -78,15 +78,15 @@ module.exports = {"app":"app__-4egw","home":"home__17AGB"};
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"textAreaWrapper":"textAreaWrapper__Ue99K","textArea":"textArea__3gMEN","textArea--italic":"textArea--italic__3KAoM","textArea--editing":"textArea--editing__20TFB","editFormOption":"editFormOption__1HnmW"};
+module.exports = {"textAreaWrapper":"textAreaWrapper__Ue99K","editInput":"editInput__1AkJX","textArea":"textArea__3gMEN","textArea--italic":"textArea--italic__3KAoM","textArea--editing":"textArea--editing__20TFB","editFormOption":"editFormOption__1HnmW","editPanel":"editPanel__j2j2l"};
 
 /***/ }),
 
-/***/ "6Hh0":
+/***/ "6DVU":
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"fullScreen":"fullScreen__EPIee","fullScreenContent":"fullScreenContent__2D6Vh","closeBtn":"closeBtn__XfGLn","sizeInfo":"sizeInfo__1kC8F"};
+module.exports = {"container":"container__QWvWP","fullSize":"fullSize__3WW5i","textAreasWrapper":"textAreasWrapper__ogZOH","gradientWrapper":"gradientWrapper__1GLl4","imageWrapper":"imageWrapper__1R4Ai","imageWrapper--bordered":"imageWrapper--bordered__1HSS1"};
 
 /***/ }),
 
@@ -142,6 +142,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 		window.classNames = classNames;
 	}
 })();
+
+/***/ }),
+
+/***/ "Clin":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"imageInput":"imageInput__2INQt"};
 
 /***/ }),
 
@@ -526,7 +534,35 @@ preact_router_es_Router.Link = preact_router_es_Link;
 
 /* harmony default export */ var preact_router_es = (preact_router_es_Router);
 //# sourceMappingURL=preact-router.es.js.map
-// CONCATENATED MODULE: ./components/image-preview/index.js
+// EXTERNAL MODULE: ./components/image-input/style.css
+var style = __webpack_require__("Clin");
+var style_default = /*#__PURE__*/__webpack_require__.n(style);
+
+// CONCATENATED MODULE: ./components/image-input/index.js
+
+
+
+
+/* harmony default export */ var image_input = (function (props) {
+    return Object(preact_min["h"])('input', {
+        type: 'text',
+        'class': style_default.a.imageInput,
+        placeholder: 'Image URL',
+        value: props.imageUrl,
+        onChange: function onChange(e) {
+            return props.updateImageUrl(e.srcElement.value);
+        }
+    });
+});
+// EXTERNAL MODULE: ../node_modules/classnames/index.js
+var classnames = __webpack_require__("9qb7");
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+
+// EXTERNAL MODULE: ./components/text-area/style.css
+var text_area_style = __webpack_require__("2/q8");
+var text_area_style_default = /*#__PURE__*/__webpack_require__.n(text_area_style);
+
+// CONCATENATED MODULE: ./components/text-area/index.js
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -539,44 +575,348 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var image_preview_GeneratorContainer = function (_Component) {
-    _inherits(GeneratorContainer, _Component);
 
-    function GeneratorContainer(props) {
-        _classCallCheck(this, GeneratorContainer);
+
+var text_area__ref = Object(preact_min["h"])(
+    'option',
+    { value: '300' },
+    '300'
+);
+
+var text_area__ref2 = Object(preact_min["h"])(
+    'option',
+    { value: '400' },
+    '400'
+);
+
+var text_area__ref3 = Object(preact_min["h"])(
+    'option',
+    { value: '600' },
+    '600'
+);
+
+var _ref4 = Object(preact_min["h"])(
+    'option',
+    { value: '700' },
+    '700'
+);
+
+var text_area_TextArea = function (_Component) {
+    _inherits(TextArea, _Component);
+
+    function TextArea(props) {
+        _classCallCheck(this, TextArea);
 
         var _this = _possibleConstructorReturn(this, _Component.call(this, props));
 
-        _this.imgPreviewStyle = {
-            width: 1200,
-            height: 625
-        };
+        _this.state = _extends({}, props.model);
         return _this;
     }
 
-    GeneratorContainer.prototype.render = function render(props, state) {
-        var previewStyle = _extends({}, this.imgPreviewStyle, {
-            'background-image': 'url(\'' + this.props.imageUrl + '\')',
-            'filter': 'blur(' + this.props.blurValue + 'px)'
+    TextArea.prototype.toggleItalic = function toggleItalic() {
+        this.setState(function (prevState) {
+            return {
+                italic: !prevState.italic
+            };
         });
-
-        return Object(preact_min["h"])('div', { style: previewStyle });
     };
 
-    return GeneratorContainer;
+    TextArea.prototype.setEditMode = function setEditMode(isEnabled) {
+        this.setState(function (prevState) {
+            return {
+                isEditEnabled: isEnabled
+            };
+        });
+    };
+
+    TextArea.prototype.setFontSize = function setFontSize(newFontSize) {
+        this.setState(function (prevState) {
+            return {
+                fontSize: newFontSize
+            };
+        });
+    };
+
+    TextArea.prototype.setText = function setText(newText) {
+        this.setState(function (prevState) {
+            return {
+                text: newText
+            };
+        });
+    };
+
+    TextArea.prototype.setFontWeight = function setFontWeight(newFontWeight) {
+        this.setState(function (prevState) {
+            return {
+                fontWeight: newFontWeight
+            };
+        });
+    };
+
+    TextArea.prototype.setTop = function setTop(newTop) {
+        this.setState(function (prevState) {
+            return {
+                top: newTop
+            };
+        });
+    };
+
+    TextArea.prototype.renderItalicCheckbox = function renderItalicCheckbox() {
+        var _this2 = this;
+
+        return Object(preact_min["h"])(
+            'label',
+            null,
+            Object(preact_min["h"])(
+                'span',
+                { 'class': text_area_style_default.a.editFormOption },
+                'Italic'
+            ),
+            Object(preact_min["h"])('input', { type: 'checkbox',
+                value: this.state.italic,
+                onChange: function onChange() {
+                    return _this2.toggleItalic();
+                } })
+        );
+    };
+
+    TextArea.prototype.renderFontSizeInput = function renderFontSizeInput() {
+        var _this3 = this;
+
+        return Object(preact_min["h"])(
+            'label',
+            null,
+            Object(preact_min["h"])(
+                'span',
+                { 'class': text_area_style_default.a.editFormOption },
+                'Font size'
+            ),
+            Object(preact_min["h"])('input', { type: 'number',
+                min: '0',
+                value: this.state.fontSize,
+                onChange: function onChange(e) {
+                    return _this3.setFontSize(e.srcElement.value);
+                } })
+        );
+    };
+
+    TextArea.prototype.renderTopInput = function renderTopInput() {
+        var _this4 = this;
+
+        return Object(preact_min["h"])(
+            'label',
+            null,
+            Object(preact_min["h"])(
+                'span',
+                { 'class': text_area_style_default.a.editFormOption },
+                'Top'
+            ),
+            Object(preact_min["h"])('input', { type: 'number',
+                value: this.state.top,
+                onChange: function onChange(e) {
+                    return _this4.setTop(e.srcElement.value);
+                } })
+        );
+    };
+
+    TextArea.prototype.renderRemoveBtn = function renderRemoveBtn() {
+        // TODO
+        return Object(preact_min["h"])(
+            'button',
+            { onClick: function onClick() {
+                    return onRemove();
+                } },
+            'Remove \xD7 '
+        );
+    };
+
+    TextArea.prototype.renderCloseBtn = function renderCloseBtn() {
+        var _this5 = this;
+
+        return Object(preact_min["h"])(
+            'button',
+            { onClick: function onClick() {
+                    return _this5.setEditMode(false);
+                } },
+            'Close'
+        );
+    };
+
+    TextArea.prototype.renderTextInput = function renderTextInput() {
+        var _this6 = this;
+
+        return Object(preact_min["h"])('input', { 'class': text_area_style_default.a.editInput,
+            type: 'text',
+            value: this.state.text,
+            onChange: function onChange(e) {
+                return _this6.setText(e.srcElement.value);
+            }
+        });
+    };
+
+    TextArea.prototype.renderWeightSelector = function renderWeightSelector() {
+        var _this7 = this;
+
+        return Object(preact_min["h"])(
+            'label',
+            null,
+            Object(preact_min["h"])(
+                'span',
+                { 'class': text_area_style_default.a.editFormOption },
+                'Font weight'
+            ),
+            Object(preact_min["h"])(
+                'select',
+                { onChange: function onChange(e) {
+                        return _this7.setFontWeight(e.srcElement.value);
+                    } },
+                text_area__ref,
+                text_area__ref2,
+                text_area__ref3,
+                _ref4
+            )
+        );
+    };
+
+    TextArea.prototype.render = function render(props) {
+        var _classNames,
+            _this8 = this;
+
+        var textClassNames = classnames_default()((_classNames = {}, _classNames[text_area_style_default.a.textArea] = true, _classNames[text_area_style_default.a['textArea--editing']] = this.state.isEditEnabled, _classNames[text_area_style_default.a['textArea--italic']] = this.state.italic, _classNames));
+
+        var textStyle = {
+            'font-size': this.state.fontSize + 'px',
+            'font-weight': this.state.fontWeight
+        };
+
+        return Object(preact_min["h"])(
+            'div',
+            { 'class': text_area_style_default.a.textAreaWrapper, style: { top: this.state.top + 'px' } },
+            Object(preact_min["h"])(
+                'p',
+                { 'class': textClassNames, style: textStyle, onClick: function onClick() {
+                        return _this8.setEditMode(true);
+                    } },
+                this.state.text
+            ),
+            this.state.isEditEnabled && Object(preact_min["h"])(
+                'div',
+                { 'class': text_area_style_default.a.editPanel },
+                this.renderTextInput(),
+                Object(preact_min["h"])(
+                    'div',
+                    null,
+                    this.renderItalicCheckbox(),
+                    this.renderFontSizeInput(),
+                    this.renderTopInput(),
+                    this.renderWeightSelector(),
+                    this.renderCloseBtn(),
+                    this.renderRemoveBtn()
+                )
+            )
+        );
+    };
+
+    return TextArea;
+}(preact_min["Component"]);
+
+
+// EXTERNAL MODULE: ./components/image-container/style.css
+var image_container_style = __webpack_require__("6DVU");
+var image_container_style_default = /*#__PURE__*/__webpack_require__.n(image_container_style);
+
+// CONCATENATED MODULE: ./components/image-container/index.js
+
+
+function image_container__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function image_container__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function image_container__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var image_container_ImageContainer = function (_Component) {
+    image_container__inherits(ImageContainer, _Component);
+
+    function ImageContainer(props) {
+        image_container__classCallCheck(this, ImageContainer);
+
+        return image_container__possibleConstructorReturn(this, _Component.call(this, props));
+    }
+
+    ImageContainer.prototype.renderGradient = function renderGradient(_ref) {
+        var gradientUrl = _ref.gradientUrl;
+
+
+        var inlineStyle = {
+            'background-image': 'url(' + gradientUrl + ')'
+        };
+
+        var classNames = classnames_default()(image_container_style_default.a.fullSize, image_container_style_default.a.gradientWrapper);
+
+        return Object(preact_min["h"])('div', { 'class': classNames, style: inlineStyle });
+    };
+
+    ImageContainer.prototype.renderImage = function renderImage(_ref2) {
+        var _classnames;
+
+        var imageUrl = _ref2.imageUrl,
+            blurValue = _ref2.blurValue;
+
+
+        var inlineStyle = {
+            'background-image': 'url(' + imageUrl + ')',
+            'filter': 'blur(' + blurValue + 'px)'
+        };
+
+        var classNames = classnames_default()(image_container_style_default.a.fullSize, image_container_style_default.a.imageWrapper, (_classnames = {}, _classnames[image_container_style_default.a['imageWrapper--bordered']] = !imageUrl, _classnames));
+
+        return Object(preact_min["h"])('div', { 'class': classNames, style: inlineStyle });
+    };
+
+    ImageContainer.prototype.renderTextAreas = function renderTextAreas(_ref3) {
+        var textAreaModels = _ref3.textAreaModels;
+
+
+        var classNames = classnames_default()(image_container_style_default.a.fullSize, image_container_style_default.a.textAreasWrapper);
+
+        return Object(preact_min["h"])(
+            'div',
+            { 'class': classNames },
+            textAreaModels.map(function (x) {
+                return Object(preact_min["h"])(text_area_TextArea, { model: x });
+            })
+        );
+    };
+
+    ImageContainer.prototype.render = function render(props, state) {
+        return Object(preact_min["h"])(
+            'div',
+            { 'class': image_container_style_default.a.container },
+            this.renderTextAreas(props),
+            this.renderGradient(props),
+            this.renderImage(props)
+        );
+    };
+
+    return ImageContainer;
 }(preact_min["Component"]);
 
 
 // EXTERNAL MODULE: ./components/gradient-picker/style.css
-var style = __webpack_require__("oPeZ");
-var style_default = /*#__PURE__*/__webpack_require__.n(style);
+var gradient_picker_style = __webpack_require__("oPeZ");
+var gradient_picker_style_default = /*#__PURE__*/__webpack_require__.n(gradient_picker_style);
 
 // CONCATENATED MODULE: ./components/gradient-picker/index.js
 
 
 
 
-var _ref = Object(preact_min["h"])(
+var gradient_picker__ref = Object(preact_min["h"])(
     'option',
     { value: '' },
     'Pick gradient style'
@@ -588,18 +928,18 @@ var _ref = Object(preact_min["h"])(
 
     return Object(preact_min["h"])(
         'div',
-        { 'class': style_default.a.gradientPickerContainer },
+        { 'class': gradient_picker_style_default.a.gradientPickerContainer },
         Object(preact_min["h"])(
             'p',
-            { 'class': style_default.a.gradientPickerTitle },
+            { 'class': gradient_picker_style_default.a.gradientPickerTitle },
             'Gradient'
         ),
         Object(preact_min["h"])(
             'select',
-            { 'class': style_default.a.gradientPickerSelect, onChange: function onChange(e) {
+            { 'class': gradient_picker_style_default.a.gradientPickerSelect, onChange: function onChange(e) {
                     return props.onChange(e.srcElement.value);
                 } },
-            _ref,
+            gradient_picker__ref,
             Object(preact_min["h"])(
                 'option',
                 { value: prefix + '/assets/gradients/1.png' },
@@ -628,8 +968,6 @@ var blur_range_style = __webpack_require__("MnJD");
 var blur_range_style_default = /*#__PURE__*/__webpack_require__.n(blur_range_style);
 
 // CONCATENATED MODULE: ./components/blur-range/index.js
-var blur_range__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 
 
 function blur_range__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -657,9 +995,9 @@ var blur_range_BlurRange = function (_Component) {
 
     BlurRange.prototype.onRangeChange = function onRangeChange(value) {
         this.setState(function (prevState) {
-            return blur_range__extends({}, prevState, {
+            return {
                 blurValue: value
-            });
+            };
         });
         this.props.onChange(value);
     };
@@ -676,6 +1014,7 @@ var blur_range_BlurRange = function (_Component) {
                 'Blur'
             ),
             Object(preact_min["h"])('input', {
+                'class': blur_range_style_default.a.inputStyle,
                 type: 'range',
                 min: '0',
                 max: '20',
@@ -692,301 +1031,95 @@ var blur_range_BlurRange = function (_Component) {
 }(preact_min["Component"]);
 
 
-// EXTERNAL MODULE: ../node_modules/classnames/index.js
-var classnames = __webpack_require__("9qb7");
-var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+// EXTERNAL MODULE: ./components/control-panel/style.css
+var control_panel_style = __webpack_require__("ctQH");
+var control_panel_style_default = /*#__PURE__*/__webpack_require__.n(control_panel_style);
 
-// EXTERNAL MODULE: ./components/text-area/style.css
-var text_area_style = __webpack_require__("2/q8");
-var text_area_style_default = /*#__PURE__*/__webpack_require__.n(text_area_style);
-
-// CONCATENATED MODULE: ./components/text-area/index.js
-var text_area__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+// CONCATENATED MODULE: ./components/control-panel/index.js
 
 
+function control_panel__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function text_area__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function control_panel__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function text_area__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function text_area__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function control_panel__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 
 
 
 
-var text_area__ref = Object(preact_min["h"])(
-    'option',
-    { value: '300' },
-    '300'
-);
 
-var _ref2 = Object(preact_min["h"])(
-    'option',
-    { value: '400' },
-    '400'
-);
 
-var _ref3 = Object(preact_min["h"])(
-    'option',
-    { value: '600' },
-    '600'
-);
+var control_panel_ControlPanel = function (_Component) {
+    control_panel__inherits(ControlPanel, _Component);
 
-var _ref4 = Object(preact_min["h"])(
-    'option',
-    { value: '700' },
-    '700'
-);
+    function ControlPanel(props) {
+        control_panel__classCallCheck(this, ControlPanel);
 
-var text_area_TextArea = function (_Component) {
-    text_area__inherits(TextArea, _Component);
+        var _this = control_panel__possibleConstructorReturn(this, _Component.call(this, props));
 
-    function TextArea(props) {
-        text_area__classCallCheck(this, TextArea);
-
-        var _this = text_area__possibleConstructorReturn(this, _Component.call(this, props));
-
-        _this.state = text_area__extends({}, props.model);
+        _this.state = {
+            isHidden: true
+        };
         return _this;
     }
 
-    TextArea.prototype.toggleItalic = function toggleItalic() {
+    ControlPanel.prototype.toggleVisibility = function toggleVisibility() {
         this.setState(function (prevState) {
             return {
-                italic: !prevState.italic
+                isHidden: !prevState.isHidden
             };
         });
     };
 
-    TextArea.prototype.setEditMode = function setEditMode(isEnabled) {
-        this.setState(function (prevState) {
-            return {
-                isEditEnabled: isEnabled
-            };
-        });
+    ControlPanel.prototype.renderControls = function renderControls(_ref) {
+        var _classnames;
+
+        var onGradientChange = _ref.onGradientChange,
+            onBlurChange = _ref.onBlurChange,
+            onNewTextArea = _ref.onNewTextArea;
+
+        var popupClass = classnames_default()(control_panel_style_default.a.controlPanelPopup, (_classnames = {}, _classnames[control_panel_style_default.a['controlPanelPopup--hidden']] = this.state.isHidden, _classnames));
+
+        return Object(preact_min["h"])(
+            'div',
+            { 'class': popupClass },
+            Object(preact_min["h"])(gradient_picker, { onChange: onGradientChange }),
+            Object(preact_min["h"])(blur_range_BlurRange, { onChange: onBlurChange }),
+            Object(preact_min["h"])(
+                'button',
+                { onClick: onNewTextArea, 'class': control_panel_style_default.a.controlPanelButton },
+                '+ Add text area'
+            )
+        );
     };
 
-    TextArea.prototype.setFontSize = function setFontSize(newFontSize) {
-        this.setState(function (prevState) {
-            return {
-                fontSize: newFontSize
-            };
-        });
-    };
-
-    TextArea.prototype.setFontWeight = function setFontWeight(newFontWeight) {
-        this.setState(function (prevState) {
-            return {
-                fontWeight: newFontWeight
-            };
-        });
-    };
-
-    TextArea.prototype.setTop = function setTop(newTop) {
-        this.setState(function (prevState) {
-            return {
-                top: newTop
-            };
-        });
-    };
-
-    TextArea.prototype.renderItalicCheckbox = function renderItalicCheckbox(italic) {
+    ControlPanel.prototype.render = function render(props) {
         var _this2 = this;
 
         return Object(preact_min["h"])(
-            'label',
-            null,
-            Object(preact_min["h"])(
-                'span',
-                { 'class': text_area_style_default.a.editFormOption },
-                'Italic'
-            ),
-            Object(preact_min["h"])('input', { type: 'checkbox',
-                value: italic,
-                onChange: function onChange() {
-                    return _this2.toggleItalic();
-                } })
-        );
-    };
-
-    TextArea.prototype.renderFontSizeInput = function renderFontSizeInput(fontSize) {
-        var _this3 = this;
-
-        return Object(preact_min["h"])(
-            'label',
-            null,
-            Object(preact_min["h"])(
-                'span',
-                { 'class': text_area_style_default.a.editFormOption },
-                'Font size'
-            ),
-            Object(preact_min["h"])('input', { type: 'number',
-                min: '0',
-                value: fontSize,
-                onChange: function onChange(e) {
-                    return _this3.setFontSize(e.srcElement.value);
-                } })
-        );
-    };
-
-    TextArea.prototype.renderTopInput = function renderTopInput(top) {
-        var _this4 = this;
-
-        return Object(preact_min["h"])(
-            'label',
-            null,
-            Object(preact_min["h"])(
-                'span',
-                { 'class': text_area_style_default.a.editFormOption },
-                'Top'
-            ),
-            Object(preact_min["h"])('input', { type: 'number',
-                value: top,
-                onChange: function onChange(e) {
-                    return _this4.setTop(e.srcElement.value);
-                } })
-        );
-    };
-
-    TextArea.prototype.renderRemoveBtn = function renderRemoveBtn(onRemove) {
-        // TODO
-        return Object(preact_min["h"])(
-            'button',
-            { onClick: function onClick() {
-                    return onRemove();
-                } },
-            'Remove \xD7 '
-        );
-    };
-
-    TextArea.prototype.renderCloseBtn = function renderCloseBtn() {
-        var _this5 = this;
-
-        // TODO
-        return Object(preact_min["h"])(
-            'button',
-            { onClick: function onClick() {
-                    return _this5.setEditMode(false);
-                } },
-            'Close'
-        );
-    };
-
-    TextArea.prototype.renderWeightSelector = function renderWeightSelector() {
-        var _this6 = this;
-
-        return Object(preact_min["h"])(
-            'label',
-            null,
-            Object(preact_min["h"])(
-                'span',
-                { 'class': text_area_style_default.a.editFormOption },
-                'Font weight'
-            ),
-            Object(preact_min["h"])(
-                'select',
-                { onChange: function onChange(e) {
-                        return _this6.setFontWeight(e.srcElement.value);
-                    } },
-                text_area__ref,
-                _ref2,
-                _ref3,
-                _ref4
-            )
-        );
-    };
-
-    TextArea.prototype.render = function render(props) {
-        var _textClassNames,
-            _this7 = this;
-
-        var textClassNames = (_textClassNames = {}, _textClassNames[text_area_style_default.a.textArea] = true, _textClassNames[text_area_style_default.a['textArea--editing']] = this.state.isEditEnabled, _textClassNames[text_area_style_default.a['textArea--italic']] = this.state.italic, _textClassNames);
-
-        var textStyle = {
-            'font-size': this.state.fontSize + 'px',
-            'font-weight': this.state.fontWeight
-        };
-
-        return Object(preact_min["h"])(
             'div',
-            { 'class': text_area_style_default.a.textAreaWrapper, style: { top: this.state.top + 'px' } },
+            { 'class': control_panel_style_default.a.controlPanel },
             Object(preact_min["h"])(
-                'p',
-                { 'class': classnames_default()(textClassNames), style: textStyle, onClick: function onClick() {
-                        return _this7.setEditMode(true);
+                'button',
+                { 'class': control_panel_style_default.a.controlPanelButton, onClick: function onClick() {
+                        return _this2.toggleVisibility();
                     } },
-                this.state.text
+                'Customize'
             ),
-            this.state.isEditEnabled && Object(preact_min["h"])(
-                'div',
-                null,
-                this.renderItalicCheckbox(this.state.italic),
-                this.renderFontSizeInput(this.state.fontSize),
-                this.renderTopInput(this.state.top),
-                this.renderWeightSelector(),
-                this.renderCloseBtn(),
-                this.renderRemoveBtn(props.onRemove)
-            )
+            this.renderControls(props)
         );
     };
 
-    return TextArea;
+    return ControlPanel;
 }(preact_min["Component"]);
 
 
-// EXTERNAL MODULE: ./components/full-screen-preview/style.css
-var full_screen_preview_style = __webpack_require__("6Hh0");
-var full_screen_preview_style_default = /*#__PURE__*/__webpack_require__.n(full_screen_preview_style);
-
-// CONCATENATED MODULE: ./components/full-screen-preview/index.js
-
-
-
-
-/* harmony default export */ var full_screen_preview = (function (props) {
-
-    var ifEnabled = Object(preact_min["h"])(
-        'div',
-        null,
-        Object(preact_min["h"])(
-            'div',
-            { 'class': full_screen_preview_style_default.a.fullScreen },
-            Object(preact_min["h"])(
-                'div',
-                { 'class': full_screen_preview_style_default.a.fullScreenContent },
-                props.children
-            )
-        ),
-        Object(preact_min["h"])(
-            'p',
-            { 'class': full_screen_preview_style_default.a.sizeInfo },
-            'Crop this to - 1200px x 625px'
-        ),
-        Object(preact_min["h"])(
-            'button',
-            { 'class': full_screen_preview_style_default.a.closeBtn, onClick: function onClick() {
-                    return props.onPreviewClose();
-                } },
-            'Close'
-        )
-    );
-
-    var ifDisabled = Object(preact_min["h"])(
-        'div',
-        null,
-        props.children
-    );
-
-    return props.enabled ? ifEnabled : ifDisabled;
-});
 // EXTERNAL MODULE: ./components/generator-container/style.css
 var generator_container_style = __webpack_require__("uK8n");
 var generator_container_style_default = /*#__PURE__*/__webpack_require__.n(generator_container_style);
 
 // CONCATENATED MODULE: ./components/generator-container/index.js
-var generator_container__extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 
 
 function generator_container__classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -994,7 +1127,6 @@ function generator_container__classCallCheck(instance, Constructor) { if (!(inst
 function generator_container__possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function generator_container__inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 
 
 
@@ -1021,41 +1153,39 @@ var generator_container_GeneratorContainer = function (_Component) {
         return _this;
     }
 
-    GeneratorContainer.prototype.updateImageUrl = function updateImageUrl(e) {
+    GeneratorContainer.prototype.updateImageUrl = function updateImageUrl(newImageUrl) {
         this.setState(function (prevState) {
-            return generator_container__extends({}, prevState, {
-                imageUrl: e.srcElement.value
-            });
+            return {
+                imageUrl: newImageUrl
+            };
         });
     };
 
     GeneratorContainer.prototype.onGradientChange = function onGradientChange(gradientUrl) {
         this.setState(function (prevState) {
-            return generator_container__extends({}, prevState, {
+            return {
                 gradientUrl: gradientUrl
-            });
+            };
         });
     };
 
     GeneratorContainer.prototype.onBlurChange = function onBlurChange(blurValue) {
         this.setState(function (prevState) {
-            return generator_container__extends({}, prevState, {
+            return {
                 blurValue: blurValue
-            });
+            };
         });
     };
 
-    GeneratorContainer.prototype.toggleFullScreen = function toggleFullScreen(isFullScreen) {
+    GeneratorContainer.prototype.toggleFullScreen = function toggleFullScreen() {
         this.setState(function (prevState) {
-            return generator_container__extends({}, prevState, {
-                isFullScreen: isFullScreen
-            });
+            return {
+                isFullScreen: !prevState.isFullScreen
+            };
         });
     };
 
-    GeneratorContainer.prototype.addTextArea = function addTextArea() {
-        var _this2 = this;
-
+    GeneratorContainer.prototype.onNewTextArea = function onNewTextArea() {
         this.setState(function (prevState) {
             return {
                 textAreaModels: [].concat(prevState.textAreaModels, [{
@@ -1064,71 +1194,35 @@ var generator_container_GeneratorContainer = function (_Component) {
                     italic: false,
                     fontSize: 30,
                     fontWeight: 400,
-                    isEditEnabled: false,
-                    onRemove: _this2.onTextAreaRemove.bind(_this2)
+                    isEditEnabled: false
                 }])
             };
         });
     };
 
-    GeneratorContainer.prototype.onTextAreaRemove = function onTextAreaRemove() {};
-
     GeneratorContainer.prototype.render = function render() {
-        var _this3 = this;
-
         return Object(preact_min["h"])(
             'div',
-            { 'class': generator_container_style_default.a.generator },
+            null,
             Object(preact_min["h"])(
                 'div',
-                { 'class': 'imagePreview' },
-                Object(preact_min["h"])('input', {
-                    type: 'text',
-                    'class': generator_container_style_default.a.generatorInput,
-                    placeholder: 'Image URL',
-                    value: this.state.imageUrl,
-                    onChange: function onChange(e) {
-                        return _this3.updateImageUrl(e);
-                    }
+                { 'class': generator_container_style_default.a.inputContainer },
+                Object(preact_min["h"])(image_input, {
+                    imageUrl: this.state.imageUrl,
+                    updateImageUrl: this.updateImageUrl.bind(this)
                 }),
-                Object(preact_min["h"])(
-                    full_screen_preview,
-                    { enabled: this.state.isFullScreen, onPreviewClose: this.toggleFullScreen.bind(this, false) },
-                    Object(preact_min["h"])(
-                        'div',
-                        { 'class': generator_container_style_default.a.imagePreviewContainer },
-                        Object(preact_min["h"])(
-                            'div',
-                            { 'class': generator_container_style_default.a.rendererWrapper },
-                            this.state.textAreaModels.map(function (x) {
-                                return Object(preact_min["h"])(text_area_TextArea, { model: x });
-                            })
-                        ),
-                        Object(preact_min["h"])(image_preview_GeneratorContainer, { imageUrl: this.state.imageUrl, blurValue: this.state.blurValue }),
-                        Object(preact_min["h"])('img', { src: this.state.gradientUrl, style: 'position: absolute; top: 0' })
-                    )
-                )
+                Object(preact_min["h"])(control_panel_ControlPanel, {
+                    onGradientChange: this.onGradientChange.bind(this),
+                    onBlurChange: this.onBlurChange.bind(this),
+                    onNewTextArea: this.onNewTextArea.bind(this)
+                })
             ),
-            Object(preact_min["h"])(
-                'div',
-                { 'class': generator_container_style_default.a.controlPanel },
-                Object(preact_min["h"])(gradient_picker, { onChange: this.onGradientChange.bind(this) }),
-                Object(preact_min["h"])(blur_range_BlurRange, { onChange: this.onBlurChange.bind(this) }),
-                Object(preact_min["h"])(
-                    'button',
-                    { 'class': generator_container_style_default.a.controlPanelButton, onClick: function onClick() {
-                            return _this3.toggleFullScreen(true);
-                        } },
-                    'Full Screen'
-                ),
-                Object(preact_min["h"])(
-                    'button',
-                    { 'class': generator_container_style_default.a.controlPanelButton, onClick: function onClick() {
-                            return _this3.addTextArea();
-                        } },
-                    'Add text area'
-                )
-            )
+            Object(preact_min["h"])(image_container_ImageContainer, {
+                imageUrl: this.state.imageUrl,
+                gradientUrl: this.state.gradientUrl,
+                blurValue: this.state.blurValue,
+                textAreaModels: this.state.textAreaModels
+            })
         );
     };
 
@@ -1450,7 +1544,15 @@ var app_App = function (_Component) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"blurRangeTitle":"blurRangeTitle__2M7KV"};
+module.exports = {"blurRangeTitle":"blurRangeTitle__2M7KV","inputStyle":"inputStyle__3mItr"};
+
+/***/ }),
+
+/***/ "ctQH":
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"controlPanel":"controlPanel__3w6vQ","controlPanelPopup":"controlPanelPopup__WPeh7","controlPanelPopup--hidden":"controlPanelPopup--hidden__3vPt1","controlPanelButton":"controlPanelButton__V__fY"};
 
 /***/ }),
 
@@ -1466,7 +1568,7 @@ module.exports = {"gradientPickerSelect":"gradientPickerSelect__2boIS","gradient
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"header":"header__3QGkI","active":"active__3gItZ"};
+module.exports = {"header":"header__3QGkI"};
 
 /***/ }),
 
@@ -1474,7 +1576,7 @@ module.exports = {"header":"header__3QGkI","active":"active__3gItZ"};
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"generator":"generator__3Mu7o","generatorInput":"generatorInput__3Al-K","controlPanel":"controlPanel__22bOS","imagePreviewContainer":"imagePreviewContainer__3tfv5","rendererWrapper":"rendererWrapper__1pjQ9","controlPanelButton":"controlPanelButton__MN0QA"};
+module.exports = {"inputContainer":"inputContainer__32aD2"};
 
 /***/ })
 
