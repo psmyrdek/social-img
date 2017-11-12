@@ -1144,10 +1144,9 @@ var generator_container_GeneratorContainer = function (_Component) {
         var _this = generator_container__possibleConstructorReturn(this, _Component.call(this));
 
         _this.state = {
-            imageUrl: 'https://poznajprogramowanie.pl/wp-content/uploads/2017/11/front-post.png',
+            imageUrl: '',
             gradientUrl: '',
             blurValue: 0,
-            isFullScreen: false,
             textAreaModels: []
         };
         return _this;
@@ -1177,19 +1176,11 @@ var generator_container_GeneratorContainer = function (_Component) {
         });
     };
 
-    GeneratorContainer.prototype.toggleFullScreen = function toggleFullScreen() {
-        this.setState(function (prevState) {
-            return {
-                isFullScreen: !prevState.isFullScreen
-            };
-        });
-    };
-
     GeneratorContainer.prototype.onNewTextArea = function onNewTextArea() {
         this.setState(function (prevState) {
             return {
                 textAreaModels: [].concat(prevState.textAreaModels, [{
-                    text: 'Click me',
+                    text: 'Click to edit',
                     top: 100,
                     italic: false,
                     fontSize: 30,
