@@ -1,6 +1,6 @@
 # social-img
 
-## PoznajProgramowanie.pl way of generating images for social media 🚀
+### Simple yet effective way to generate images for social media 🚀
 
 Preview:
 ![Preview mode](https://i.imgur.com/bKe9Pmu.jpg)
