@@ -1,6 +1,12 @@
 # social-img
 
-## CLI Commands
+## PoznajProgramowanie.pl way of generating images for social media 🚀
+
+Preview:
+
+Edit mode:
+
+### CLI Commands
 
 ``` bash
 # install dependencies
