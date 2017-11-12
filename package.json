@@ -8,7 +8,7 @@
     "build": "preact build",
     "serve": "preact build && preact serve",
     "dev": "preact watch",
-    "build-github": "preact build --dest=docs",
+    "build-gh": "preact build --dest=docs",
     "lint": "eslint src"
   },
   "eslintConfig": {

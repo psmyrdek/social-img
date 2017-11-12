@@ -10,5 +10,5 @@ npm install
 npm start
 
 # build for Github Pages
-npm run build-github
+npm run build-gh
 ```
