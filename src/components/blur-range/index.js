@@ -13,7 +13,6 @@ export default class BlurRange extends Component {
     onRangeChange(value) {
         this.setState(prevState => {
             return {
-                ...prevState,
                 blurValue: value
             }
         });
@@ -25,6 +24,7 @@ export default class BlurRange extends Component {
             <div>
                 <p class={style.blurRangeTitle}>Blur</p>
                 <input
+                    class={style.inputStyle}
                     type="range"
                     min="0"
                     max="20"

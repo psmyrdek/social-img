@@ -1,0 +1,6 @@
+.imageInput {
+    flex-grow: 10;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 5px;
+}

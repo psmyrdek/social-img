@@ -1,9 +1,10 @@
 import { h, Component } from 'preact';
-import ImagePreview from '../../components/image-preview';
-import GradientPicker from '../../components/gradient-picker';
-import BlurRange from '../../components/blur-range';
-import TextArea from '../../components/text-area';
-import FullScreenPreview from '../../components/full-screen-preview';
+
+// import TextArea from '../../components/text-area';
+
+import ImageInput from '../../components/image-input';
+import ImageContainer from '../../components/image-container';
+import ControlPanel from '../../components/control-panel';
 import style from './style';
 
 export default class GeneratorContainer extends Component {
@@ -19,11 +20,10 @@ export default class GeneratorContainer extends Component {
         };
     }
 
-    updateImageUrl(e) {
+    updateImageUrl(newImageUrl) {
         this.setState(prevState => {
             return {
-                ...prevState,
-                imageUrl: e.srcElement.value
+                imageUrl: newImageUrl
             }
         });
     }
@@ -31,7 +31,6 @@ export default class GeneratorContainer extends Component {
     onGradientChange(gradientUrl) {
         this.setState(prevState => {
             return {
-                ...prevState,
                 gradientUrl: gradientUrl
             }
         });
@@ -40,22 +39,20 @@ export default class GeneratorContainer extends Component {
     onBlurChange(blurValue) {
         this.setState(prevState => {
             return {
-                ...prevState,
                 blurValue: blurValue
             }
         });
     }
 
-    toggleFullScreen(isFullScreen) {
+    toggleFullScreen() {
         this.setState(prevState => {
             return {
-                ...prevState,
-                isFullScreen: isFullScreen
+                isFullScreen: !prevState.isFullScreen
             }
         });
     }
 
-    addTextArea() {
+    onNewTextArea() {
         this.setState(prevState => {
             return {
                 textAreaModels: [...prevState.textAreaModels, {
@@ -71,38 +68,29 @@ export default class GeneratorContainer extends Component {
         });
     }
 
-    onTextAreaRemove() {
-
-    }
-
     render() {
-
         return (
-            <div class={style.generator}>
-                <div class="imagePreview">
-                    <input
-                        type="text"
-                        class={style.generatorInput}
-                        placeholder="Image URL"
-                        value={this.state.imageUrl}
-                        onChange={e => this.updateImageUrl(e)}
+            //     <div class={style.controlPanel}>
+            //         <button class={style.controlPanelButton} onClick={() => this.addTextArea()}>Add text area</button>
+            //     </div>
+            // </div>
+            <div>
+                <div class={style.inputContainer}>
+                    <ImageInput 
+                        imageUrl={this.state.imageUrl} 
+                        updateImageUrl={this.updateImageUrl.bind(this)} 
                     />
-                    <FullScreenPreview enabled={this.state.isFullScreen} onPreviewClose={this.toggleFullScreen.bind(this, false)}>
-                        <div class={style.imagePreviewContainer}>
-                            <div class={style.rendererWrapper}>
-                                {this.state.textAreaModels.map(x => <TextArea model={x} />)}
-                            </div>
-                            <ImagePreview imageUrl={this.state.imageUrl} blurValue={this.state.blurValue} />
-                            <img src={this.state.gradientUrl} style="position: absolute; top: 0" />
-                        </div>
-                    </FullScreenPreview>
+                    <ControlPanel 
+                        onGradientChange={this.onGradientChange.bind(this)}
+                        onBlurChange={this.onBlurChange.bind(this)}
+                        onNewTextArea={this.onNewTextArea.bind(this)}
+                    />
                 </div>
-                <div class={style.controlPanel}>
-                    <GradientPicker onChange={this.onGradientChange.bind(this)} />
-                    <BlurRange onChange={this.onBlurChange.bind(this)} />
-                    <button class={style.controlPanelButton} onClick={() => this.toggleFullScreen(true)}>Full Screen</button>
-                    <button class={style.controlPanelButton} onClick={() => this.addTextArea()}>Add text area</button>
-                </div>
+                <ImageContainer
+                    imageUrl={this.state.imageUrl}
+                    gradientUrl={this.state.gradientUrl}
+                    blurValue={this.state.blurValue}
+                />
             </div>
         )
     }
