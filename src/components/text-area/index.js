@@ -33,6 +33,14 @@ export default class TextArea extends Component {
         });
     }
 
+    setText(newText) {
+        this.setState(prevState => {
+            return {
+                text: newText
+            }
+        });
+    }
+
     setFontWeight(newFontWeight) {
         this.setState(prevState => {
             return {
@@ -49,41 +57,41 @@ export default class TextArea extends Component {
         });
     }
 
-    renderItalicCheckbox(italic) {
+    renderItalicCheckbox() {
         return (
             <label>
                 <span class={style.editFormOption}>Italic</span>
                 <input type="checkbox"
-                    value={italic}
+                    value={this.state.italic}
                     onChange={() => this.toggleItalic()} />
             </label>
         )
     }
 
-    renderFontSizeInput(fontSize) {
+    renderFontSizeInput() {
         return (
             <label>
                 <span class={style.editFormOption}>Font size</span>
                 <input type="number"
                     min="0"
-                    value={fontSize}
+                    value={this.state.fontSize}
                     onChange={(e) => this.setFontSize(e.srcElement.value)} />
             </label>
         )
     }
 
-    renderTopInput(top) {
+    renderTopInput() {
         return (
             <label>
                 <span class={style.editFormOption}>Top</span>
                 <input type="number"
-                    value={top}
+                    value={this.state.top}
                     onChange={(e) => this.setTop(e.srcElement.value)} />
             </label>
         )
     }
 
-    renderRemoveBtn(onRemove) {
+    renderRemoveBtn() {
         // TODO
         return (
             <button onClick={() => onRemove()}>Remove &times; </button>
@@ -91,9 +99,18 @@ export default class TextArea extends Component {
     }
 
     renderCloseBtn() {
-        // TODO
         return (
             <button onClick={() => this.setEditMode(false)}>Close</button>
+        )
+    }
+
+    renderTextInput() {
+        return (
+            <input class={style.editInput} 
+                type="text" 
+                value={this.state.text} 
+                onChange={(e) => this.setText(e.srcElement.value)} 
+            />
         )
     }
 
@@ -113,11 +130,11 @@ export default class TextArea extends Component {
 
     render(props) {
 
-        const textClassNames = {
+        const textClassNames = classNames({
             [style.textArea]: true,
             [style['textArea--editing']]: this.state.isEditEnabled,
             [style['textArea--italic']]: this.state.italic
-        };
+        });
 
         const textStyle = {
             'font-size': `${this.state.fontSize}px`,
@@ -126,17 +143,20 @@ export default class TextArea extends Component {
 
         return (
             <div class={style.textAreaWrapper} style={{ top: `${this.state.top}px` }} >
-                <p class={classNames(textClassNames)} style={textStyle} onClick={() => this.setEditMode(true)}>
+                <p class={textClassNames} style={textStyle} onClick={() => this.setEditMode(true)}>
                     {this.state.text}
                 </p>
                 {this.state.isEditEnabled &&
-                    <div>
-                        {this.renderItalicCheckbox(this.state.italic)}
-                        {this.renderFontSizeInput(this.state.fontSize)}
-                        {this.renderTopInput(this.state.top)}
-                        {this.renderWeightSelector()}
-                        {this.renderCloseBtn()}
-                        {this.renderRemoveBtn(props.onRemove)}
+                    <div class={style.editPanel}>
+                        {this.renderTextInput()}
+                        <div>
+                            {this.renderItalicCheckbox()}
+                            {this.renderFontSizeInput()}
+                            {this.renderTopInput()}
+                            {this.renderWeightSelector()}
+                            {this.renderCloseBtn()}
+                            {this.renderRemoveBtn()}
+                        </div>
                     </div>
                 }
             </div>

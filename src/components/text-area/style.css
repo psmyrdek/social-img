@@ -6,6 +6,11 @@
     width: 100%;
 }
 
+.editInput {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
 .textArea {
     color: white;
     font-family: 'Montserrat', sans-serif;
@@ -19,11 +24,15 @@
 
 .textArea--editing {
     color: rgb(75, 223, 154);
-    border: 1px dashed rgb(75, 223, 154);
 }
 
 .editFormOption {
     color: white;
     margin-left: 20px;
     margin-right: 5px;
+}
+
+.editPanel {
+    border: 1px dashed rgb(75, 223, 154);
+    padding: 5px;
 }

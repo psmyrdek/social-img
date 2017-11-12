@@ -1,5 +1,6 @@
 import {h, Component} from 'preact';
 import classnames from 'classnames';
+import TextArea from '../../components/text-area';
 import style from './style';
 
 export default class ImageContainer extends Component {
@@ -7,10 +8,10 @@ export default class ImageContainer extends Component {
         super(props);
     }
 
-    renderGradient(props) {
+    renderGradient({gradientUrl}) {
 
         const inlineStyle = {
-            'background-image': `url(${props.gradientUrl})`
+            'background-image': `url(${gradientUrl})`
         }
 
         const classNames = classnames(style.fullSize, style.gradientWrapper);
@@ -21,15 +22,15 @@ export default class ImageContainer extends Component {
         )
     }
 
-    renderImage(props) {
+    renderImage({imageUrl, blurValue}) {
 
         const inlineStyle = {
-            'background-image': `url(${props.imageUrl})`,
-            'filter': `blur(${props.blurValue}px)`
+            'background-image': `url(${imageUrl})`,
+            'filter': `blur(${blurValue}px)`
         };
 
         const classNames = classnames(style.fullSize, style.imageWrapper, {
-            [style['imageWrapper--bordered']]: !props.imageUrl
+            [style['imageWrapper--bordered']]: !imageUrl
         });
 
         return (
@@ -37,9 +38,21 @@ export default class ImageContainer extends Component {
         )
     }
 
+    renderTextAreas({textAreaModels}) {
+
+        const classNames = classnames(style.fullSize, style.textAreasWrapper);
+
+        return (
+            <div class={classNames}>
+                {textAreaModels.map(x => <TextArea model={x} />)}
+            </div>
+        )
+    }
+
     render(props, state) {
         return (
             <div class={style.container}>
+                {this.renderTextAreas(props)}
                 {this.renderGradient(props)}
                 {this.renderImage(props)}
             </div>

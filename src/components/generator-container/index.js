@@ -1,7 +1,5 @@
 import { h, Component } from 'preact';
 
-// import TextArea from '../../components/text-area';
-
 import ImageInput from '../../components/image-input';
 import ImageContainer from '../../components/image-container';
 import ControlPanel from '../../components/control-panel';
@@ -61,8 +59,7 @@ export default class GeneratorContainer extends Component {
                     italic: false,
                     fontSize: 30,
                     fontWeight: 400,
-                    isEditEnabled: false,
-                    onRemove: this.onTextAreaRemove.bind(this)
+                    isEditEnabled: false
                 }]
             }
         });
@@ -70,10 +67,6 @@ export default class GeneratorContainer extends Component {
 
     render() {
         return (
-            //     <div class={style.controlPanel}>
-            //         <button class={style.controlPanelButton} onClick={() => this.addTextArea()}>Add text area</button>
-            //     </div>
-            // </div>
             <div>
                 <div class={style.inputContainer}>
                     <ImageInput 
@@ -90,6 +83,7 @@ export default class GeneratorContainer extends Component {
                     imageUrl={this.state.imageUrl}
                     gradientUrl={this.state.gradientUrl}
                     blurValue={this.state.blurValue}
+                    textAreaModels={this.state.textAreaModels}
                 />
             </div>
         )
