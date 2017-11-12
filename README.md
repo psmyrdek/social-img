@@ -3,8 +3,10 @@
 ## PoznajProgramowanie.pl way of generating images for social media 🚀
 
 Preview:
+![Preview mode](https://i.imgur.com/bKe9Pmu.jpg)
 
 Edit mode:
+![Edit mode](https://i.imgur.com/jej3Rhw.jpg)
 
 ### CLI Commands
 
